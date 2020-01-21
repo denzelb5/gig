@@ -113,7 +113,8 @@
     "instrumentId": "instrument14",
     "gigId": "gig3",
     "number": "1"
-  },"gigInstrument24": {
+  },
+  "gigInstrument24": {
     "instrumentId": "instrument15",
     "gigId": "gig3",
     "number": "3"

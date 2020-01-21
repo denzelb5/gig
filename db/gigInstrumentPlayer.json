@@ -1,0 +1,429 @@
+{
+  "gigInstrumentPlayer1": {
+    "gigInstrumentId": "gigInstrument1",
+    "playerId": "player1",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer2": {
+    "gigInstrumentId": "gigInstrument1",
+    "playerId": "player2",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer3": {
+    "gigInstrumentId": "gigInstrument1",
+    "playerId": "player3",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer4": {
+    "gigInstrumentId": "gigInstrument1",
+    "playerId": "player4",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer5": {
+    "gigInstrumentId": "gigInstrument2",
+    "playerId": "player5",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer6": {
+    "gigInstrumentId": "gigInstrument2",
+    "playerId": "player6",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer7": {
+    "gigInstrumentId": "gigInstrument2",
+    "playerId": "player7",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer8": {
+    "gigInstrumentId": "gigInstrument3",
+    "playerId": "player17",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer9": {
+    "gigInstrumentId": "gigInstrument3",
+    "playerId": "player18",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer10": {
+    "gigInstrumentId": "gigInstrument4",
+    "playerId": "player23",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer11": {
+    "gigInstrumentId": "gigInstrument4",
+    "playerId": "player24",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer12": {
+    "gigInstrumentId": "gigInstrument5",
+    "playerId": "player29",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer13": {
+    "gigInstrumentId": "gigInstrument6",
+    "playerId": "player12",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer14": {
+    "gigInstrumentId": "gigInstrument7",
+    "playerId": "player15",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer15": {
+    "gigInstrumentId": "gigInstrument8",
+    "playerId": "player19",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer16": {
+    "gigInstrumentId": "gigInstrument9",
+    "playerId": "player25",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer17": {
+    "gigInstrumentId": "gigInstrument10",
+    "playerId": "player1",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer18": {
+    "gigInstrumentId": "gigInstrument10",
+    "playerId": "player2",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer19": {
+    "gigInstrumentId": "gigInstrument10",
+    "playerId": "player3",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer20": {
+    "gigInstrumentId": "gigInstrument10",
+    "playerId": "player4",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer21": {
+    "gigInstrumentId": "gigInstrument10",
+    "playerId": "player5",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer22": {
+    "gigInstrumentId": "gigInstrument10",
+    "playerId": "player6",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer23": {
+    "gigInstrumentId": "gigInstrument10",
+    "playerId": "player7",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer24": {
+    "gigInstrumentId": "gigInstrument10",
+    "playerId": "player8",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer25": {
+    "gigInstrumentId": "gigInstrument11",
+    "playerId": "player9",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer26": {
+    "gigInstrumentId": "gigInstrument11",
+    "playerId": "player10",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer27": {
+    "gigInstrumentId": "gigInstrument11",
+    "playerId": "player11",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer28": {
+    "gigInstrumentId": "gigInstrument11",
+    "playerId": "player12",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer29": {
+    "gigInstrumentId": "gigInstrument11",
+    "playerId": "player13",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer30": {
+    "gigInstrumentId": "gigInstrument11",
+    "playerId": "player14",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer31": {
+    "gigInstrumentId": "gigInstrument11",
+    "playerId": "player15",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer32": {
+    "gigInstrumentId": "gigInstrument11",
+    "playerId": "player16",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer33": {
+    "gigInstrumentId": "gigInstrument12",
+    "playerId": "player17",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer34": {
+    "gigInstrumentId": "gigInstrument12",
+    "playerId": "player18",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer35": {
+    "gigInstrumentId": "gigInstrument12",
+    "playerId": "player19",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer36": {
+    "gigInstrumentId": "gigInstrument12",
+    "playerId": "player20",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer37": {
+    "gigInstrumentId": "gigInstrument12",
+    "playerId": "player21",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer38": {
+    "gigInstrumentId": "gigInstrument12",
+    "playerId": "player22",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer39": {
+    "gigInstrumentId": "gigInstrument13",
+    "playerId": "player23",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer40": {
+    "gigInstrumentId": "gigInstrument13",
+    "playerId": "player24",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer41": {
+    "gigInstrumentId": "gigInstrument13",
+    "playerId": "player25",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer42": {
+    "gigInstrumentId": "gigInstrument13",
+    "playerId": "player26",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer43": {
+    "gigInstrumentId": "gigInstrument13",
+    "playerId": "player27",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer44": {
+    "gigInstrumentId": "gigInstrument13",
+    "playerId": "player28",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer45": {
+    "gigInstrumentId": "gigInstrument14",
+    "playerId": "player29",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer46": {
+    "gigInstrumentId": "gigInstrument14",
+    "playerId": "player30",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer47": {
+    "gigInstrumentId": "gigInstrument14",
+    "playerId": "player31",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer48": {
+    "gigInstrumentId": "gigInstrument14",
+    "playerId": "player32",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer49": {
+    "gigInstrumentId": "gigInstrument15",
+    "playerId": "player33",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer50": {
+    "gigInstrumentId": "gigInstrument15",
+    "playerId": "player34",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer51": {
+    "gigInstrumentId": "gigInstrument15",
+    "playerId": "player35",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer52": {
+    "gigInstrumentId": "gigInstrument16",
+    "playerId": "player36",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer53": {
+    "gigInstrumentId": "gigInstrument16",
+    "playerId": "player37",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer54": {
+    "gigInstrumentId": "gigInstrument17",
+    "playerId": "player38",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer55": {
+    "gigInstrumentId": "gigInstrument17",
+    "playerId": "player39",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer56": {
+    "gigInstrumentId": "gigInstrument18",
+    "playerId": "player40",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer57": {
+    "gigInstrumentId": "gigInstrument18",
+    "playerId": "player41",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer58": {
+    "gigInstrumentId": "gigInstrument19",
+    "playerId": "player42",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer59": {
+    "gigInstrumentId": "gigInstrument19",
+    "playerId": "player43",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer60": {
+    "gigInstrumentId": "gigInstrument20",
+    "playerId": "player44",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer61": {
+    "gigInstrumentId": "gigInstrument20",
+    "playerId": "player45",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer62": {
+    "gigInstrumentId": "gigInstrument20",
+    "playerId": "player46",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer63": {
+    "gigInstrumentId": "gigInstrument21",
+    "playerId": "player47",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer64": {
+    "gigInstrumentId": "gigInstrument21",
+    "playerId": "player48",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer65": {
+    "gigInstrumentId": "gigInstrument22",
+    "playerId": "player49",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer66": {
+    "gigInstrumentId": "gigInstrument23",
+    "playerId": "player50",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer67": {
+    "gigInstrumentId": "gigInstrument24",
+    "playerId": "player51",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer68": {
+    "gigInstrumentId": "gigInstrument24",
+    "playerId": "player52",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer69": {
+    "gigInstrumentId": "gigInstrument24",
+    "playerId": "player53",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer70": {
+    "gigInstrumentId": "gigInstrument25",
+    "playerId": "player54",
+    "isYes": "true",
+    "isNo": "false"
+  },
+  "gigInstrumentPlayer71": {
+    "gigInstrumentId": "gigInstrument26",
+    "playerId": "player55",
+    "isYes": "true",
+    "isNo": "false"
+  }
+  
+}

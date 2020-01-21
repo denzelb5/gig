@@ -1,0 +1,53 @@
+{
+  "instrument1": {
+    "name": "Violin 1"
+  },
+  "instrument2": {
+    "name": "Violin 2"
+  },
+  "instrument3": {
+    "name": "Viola"
+  },
+  "instrument4": {
+    "name": "Cello"
+  },
+  "instrument5": {
+    "name": "Bass"
+  },
+  "instrument6": {
+    "name": "Flute"
+  },
+  "instrument7": {
+    "name": "Oboe"
+  },
+  "instrument8": {
+    "name": "Clarinet"
+  },
+  "instrument9": {
+    "name": "Bassoon"
+  },
+  "instrument10": {
+    "name": "Trumpet"
+  },
+  "instrument11": {
+    "name": "French Horn"
+  },
+  "instrument12": {
+    "name": "Trombone"
+  },
+  "instrument13": {
+    "name": "Tuba"
+  },
+  "instrument14": {
+    "name": "Timpani"
+  },
+  "instrument15": {
+    "name": "Percussion"
+  },
+  "instrument16": {
+    "name": "Harp"
+  },
+  "instrument17": {
+    "name": "Piano"
+  }
+}

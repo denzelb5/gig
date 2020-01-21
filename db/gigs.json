@@ -1,0 +1,45 @@
+{
+  "gig1": {
+  "name": "Bachanalia",
+  "concertDate": "March 27th, 2020",
+  "concertTime": "5:00 PM",
+  "concertLocation": "Christ Church Cathedral",
+  "concertDress": "All Black",
+  "basePayTotal": "0",
+  "rehearsalDate": "March 25, 2020",
+  "rehearsalTime": "7:00 PM",
+  "rehearsalLocation": "Christ Church Cathedral",
+  "contractorEmail": "joeSchmoe@bachanalia.org",
+  "contractorPhone": "615-555-5555",
+  "reportoire": "Bach Concerto in E Major",
+  "isOutside": "No"
+  },
+  "gig2": {
+    "name": "Walsh Wedding",
+    "concertDate": "April 4, 2020",
+    "concertTime": "4:00 PM",
+    "concertLocation": "Belle Meade Plantation",
+    "concertDress": "All Black",
+    "basePayTotal": "$150",
+    "rehearsalDate": "None",
+    "rehearsalTime": "None",
+    "rehearsalLocation": "None",
+    "contractorEmail": "mikeJones@yahoo.com",
+    "contractorPhone": "615-333-3333",
+    "reportoire": "Yes"
+    },
+    "gig3": {
+      "name": "Valentine's Concert",
+      "concertDate": "February 14, 2020",
+      "concertTime": "8:00 PM",
+      "concertLocation": "Schermerhorn Symphony Center",
+      "concertDress": "Black And White",
+      "basePayTotal": "$300",
+      "rehearsalDate": "February 12, 2020",
+      "rehearsalTime": "10:00 AM",
+      "rehearsalLocation": "Schermerhorn Symphony Center",
+      "contractorEmail": "ccummins@gmail.com",
+      "contractorPhone": "615-444-4444",
+      "reportoire": "American Songbook Selections"
+    }
+}

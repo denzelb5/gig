@@ -5,7 +5,9 @@ import './Home.scss';
 class Home extends React.Component {
   render() {
     return (
+      <div>
       <Link className="btn btn-danger" to="/gigs">to gigs</Link>
+      </div>
     );
   }
 }

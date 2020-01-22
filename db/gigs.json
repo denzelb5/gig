@@ -1,6 +1,7 @@
 {
   "gig1": {
   "name": "Bachanalia",
+  "description": "Small ensemble performance of Bach Violin Concerto in E Major",
   "concertDate": "March 27th, 2020",
   "concertTime": "5:00 PM",
   "concertLocation": "Christ Church Cathedral",
@@ -12,10 +13,12 @@
   "contractorEmail": "joeSchmoe@bachanalia.org",
   "contractorPhone": "615-555-5555",
   "reportoire": "Bach Concerto in E Major",
-  "isOutside": "No"
+  "isOutside": "No",
+  "uid": "C3tZozQCCGRUiYF90foMwjVB6RS2"
   },
   "gig2": {
     "name": "Walsh Wedding",
+    "description": "String Quartet needed for outdoor wedding.",
     "concertDate": "April 4, 2020",
     "concertTime": "4:00 PM",
     "concertLocation": "Belle Meade Plantation",
@@ -26,10 +29,13 @@
     "rehearsalLocation": "None",
     "contractorEmail": "mikeJones@yahoo.com",
     "contractorPhone": "615-333-3333",
-    "reportoire": "Yes"
+    "reportoire": "Pachelbel's Cannon, Jesu Joy of Man's Desiring, Ave Maria",
+    "isOutside": "Yes",
+    "uid": "C3tZozQCCGRUiYF90foMwjVB6RS2"
     },
     "gig3": {
       "name": "Valentine's Concert",
+      "description": "Full Orchestra Performance",
       "concertDate": "February 14, 2020",
       "concertTime": "8:00 PM",
       "concertLocation": "Schermerhorn Symphony Center",
@@ -40,6 +46,8 @@
       "rehearsalLocation": "Schermerhorn Symphony Center",
       "contractorEmail": "ccummins@gmail.com",
       "contractorPhone": "615-444-4444",
-      "reportoire": "American Songbook Selections"
+      "reportoire": "American Songbook Selections",
+      "isOutside": "No",
+      "uid": "C3tZozQCCGRUiYF90foMwjVB6RS2"
     }
 }

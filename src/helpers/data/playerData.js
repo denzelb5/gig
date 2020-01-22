@@ -3,7 +3,7 @@ import apiKeys from '../apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getPlayers = () => new Promise((resolve, reject) => {
+const getAllPlayers = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/players.json`)
     .then((result) => {
       const playerObject = result.data;
@@ -24,7 +24,7 @@ const addPlayer = (newPlayer) => axios.post(`${baseUrl}/players.json`, newPlayer
 const updatePlayer = (playerId, newPlayerInfo) => axios.put(`${baseUrl}/players/${playerId}.json`, newPlayerInfo);
 
 export default {
-  getPlayers,
+  getAllPlayers,
   addPlayer,
   updatePlayer,
   deletePlayer,

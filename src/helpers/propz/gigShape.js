@@ -16,5 +16,6 @@ const gigShape = PropTypes.shape({
   contractorPhone: PropTypes.string.isRequired,
   reportoire: PropTypes.string.isRequired,
   isOutside: PropTypes.string.isRequired,
+  uid: PropTypes.string.isRequired,
 });
 export default { gigShape };

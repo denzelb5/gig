@@ -3,7 +3,7 @@ import apiKeys from '../apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getInstruments = () => new Promise((resolve, reject) => {
+const getAllInstruments = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/instruments.json`)
     .then((result) => {
       const instrumentObject = result.data;
@@ -24,7 +24,7 @@ const addInstruments = (newInstrument) => axios.post(`${baseUrl}/players.json`, 
 const updateInstruments = (instrumentId, newInstrumentInfo) => axios.put(`${baseUrl}/instruments/${instrumentId}.json`, newInstrumentInfo);
 
 export default {
-  getInstruments,
+  getAllInstruments,
   addInstruments,
   updateInstruments,
   deleteInstruments,

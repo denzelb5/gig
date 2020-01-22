@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import gigShape from '../../../helpers/propz/gigShape';
+
 
 import './GigCard.scss';
 
@@ -11,6 +13,7 @@ class GigCard extends React.Component {
 
   render() {
     const { gig } = this.props;
+    const { gigId } = this.props.match.params;
     return (
       <div className="card mb-3">
   <div className="row no-gutters">
@@ -35,6 +38,7 @@ class GigCard extends React.Component {
     <li className="list-group-item">Reportoire: {gig.reportoire}</li>
     <li className="list-group-item">Outdoors: {gig.isOutside}</li>
   </ul>
+  <Link className="btn btn-success" to={`/gig/:${gigId}`}>View Gig</Link>
 </div>
       </div>
     </div>

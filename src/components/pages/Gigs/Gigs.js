@@ -26,8 +26,8 @@ class Gig extends React.Component {
     return (
       <div className="Gigs">
       <h2>Gigs Page</h2>
-      {this.state.gigs.map((gigs) => <GigCard key={gigs.id} gig={gigs} />)}
       <Link className="btn btn-secondary" to="/gig/:gigId/roster">To Roster</Link>
+      {this.state.gigs.map((gigs) => <GigCard key={gigs.id} gig={gigs} />)}
       </div>
     );
   }

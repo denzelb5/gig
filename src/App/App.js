@@ -17,6 +17,7 @@ import GigForm from '../components/pages/GigForm/GigForm';
 import firebaseConnection from '../helpers/data/connection';
 import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
 import Roster from '../components/pages/Roster/Roster';
+import Gigs from '../components/pages/Gigs/Gigs';
 
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -57,6 +58,7 @@ class App extends React.Component {
        <MyNavbar authed={authed} />
        <Switch>
          <PrivateRoute path="/" exact component={Home} authed={authed} />
+         <PrivateRoute path="/gigs" exact component={Gigs} authed={authed} />
          <PrivateRoute path="/gig/new" exact component={GigForm} authed={authed} />
          <PublicRoute path="/auth" exact component={Auth} authed={authed} />
          <PrivateRoute path="/gig/:gigId/edit" exact component={GigForm} authed={authed} />

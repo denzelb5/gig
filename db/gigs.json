@@ -13,7 +13,8 @@
   "contractorEmail": "joeSchmoe@bachanalia.org",
   "contractorPhone": "615-555-5555",
   "reportoire": "Bach Concerto in E Major",
-  "isOutside": "No"
+  "isOutside": "No",
+  "uid": "C3tZozQCCGRUiYF90foMwjVB6RS2"
   },
   "gig2": {
     "name": "Walsh Wedding",
@@ -29,7 +30,8 @@
     "contractorEmail": "mikeJones@yahoo.com",
     "contractorPhone": "615-333-3333",
     "reportoire": "Pachelbel's Cannon, Jesu Joy of Man's Desiring, Ave Maria",
-    "isOutside": "Yes"
+    "isOutside": "Yes",
+    "uid": "C3tZozQCCGRUiYF90foMwjVB6RS2"
     },
     "gig3": {
       "name": "Valentine's Concert",
@@ -45,6 +47,7 @@
       "contractorEmail": "ccummins@gmail.com",
       "contractorPhone": "615-444-4444",
       "reportoire": "American Songbook Selections",
-      "isOutside": "No"
+      "isOutside": "No",
+      "uid": "C3tZozQCCGRUiYF90foMwjVB6RS2"
     }
 }

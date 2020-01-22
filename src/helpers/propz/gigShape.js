@@ -8,7 +8,7 @@ const gigShape = PropTypes.shape({
   concertTime: PropTypes.string.isRequired,
   concertLocation: PropTypes.string.isRequired,
   concertDress: PropTypes.string.isRequired,
-  basePayTotal: PropTypes.number.isRequired,
+  basePayTotal: PropTypes.string.isRequired,
   rehearsalDate: PropTypes.string.isRequired,
   rehearsalTime: PropTypes.string.isRequired,
   rehearsalLocation: PropTypes.string.isRequired,

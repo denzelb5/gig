@@ -25,7 +25,6 @@ class Roster extends React.Component {
   }
 
   componentDidMount() {
-    // const { gigId } = this.props.match.params;
     this.getInstruments();
     this.getPlayers();
   }

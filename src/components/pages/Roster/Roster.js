@@ -25,15 +25,18 @@ class Roster extends React.Component {
   }
 
   componentDidMount() {
+    // const { gigId } = this.props.match.params;
     this.getInstruments();
     this.getPlayers();
   }
 
   render() {
+    const { gigId } = this.props.match.params;
     return (
       <div className="roster">
       <h1>Roster page</h1>
       <Link className="btn btn-success" to="/gig/:gigId/edit">to gig edit</Link>
+      <Link className="btn btn-success" to={`/gig/:${gigId}`}>View Gig</Link>
       {this.state.instruments.map((instrument) => <InstrumentRow key={instrument.id} instrument={instrument} />)}
       {this.state.players.map((player) => <PlayerRow key={player.id} player={player} />)}
       </div>

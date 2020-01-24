@@ -14,34 +14,38 @@ class GigCard extends React.Component {
   render() {
     const { gig } = this.props;
     return (
+      <div className="gigCard">
       <div className="card mb-3">
-  <div className="row no-gutters">
+  <div className="row">
     <div className="col-md-4">
+    <img src="https://www.goodfreephotos.com/cache/vector-images/violin-vector-art.png" className="card-img" alt="..."/>
     </div>
     <div className="col-md-8">
       <div className="card-body">
         <h5 className="card-title">Name: {gig.name}</h5>
         <p className="card-text">Info: {gig.description}</p>
-        <div className="card">
-  <ul className="list-group list-group-flush">
-    <li className="list-group-item">Concert Date: {gig.concertDate}</li>
-    <li className="list-group-item">Concert Time: {gig.concertTime}</li>
-    <li className="list-group-item">Concert Location: {gig.concertLocation}</li>
-    <li className="list-group-item">Concert Date: {gig.concertDress}</li>
-    <li className="list-group-item">Concert Time: {gig.basePayTotal}</li>
-    <li className="list-group-item">Rehearsal Date: {gig.rehearsalDate}</li>
-    <li className="list-group-item">Rehearsal Time: {gig.rehearsalTime}</li>
-    <li className="list-group-item">Rehearsal Location: {gig.rehearsalLocation}</li>
-    <li className="list-group-item">Contractor Email: {gig.contractorEmail}</li>
-    <li className="list-group-item">Contractor Phone: {gig.contractorPhone}</li>
-    <li className="list-group-item">Reportoire: {gig.reportoire}</li>
-    <li className="list-group-item">Outdoors: {gig.isOutside}</li>
-  </ul>
+        <div className="d-flex flex-wrap">
+        <div className="col-5">
+    <p>Concert Date: {gig.concertDate}</p>
+    <p>Concert Time: {gig.concertTime}</p>
+    <p>Concert Location: {gig.concertLocation}</p>
+    <p>Concert Dress: {gig.concertDress}</p>
+    <p>Outdoors: {gig.isOutside}</p>
+    </div>
+    <div className="col-5">
+    <p>Rehearsal Date: {gig.rehearsalDate}</p>
+    <p>Rehearsal Time: {gig.rehearsalTime}</p>
+    <p>Rehearsal Location: {gig.rehearsalLocation}</p>
+    <p>Reportoire: {gig.reportoire}</p>
+  </div>
+  <p>Contractor Email: {gig.contractorEmail}</p>
+    <p>Contractor Phone: {gig.contractorPhone}</p>
+</div>
 </div>
       </div>
     </div>
   </div>
-</div>
+  </div>
     );
   }
 }

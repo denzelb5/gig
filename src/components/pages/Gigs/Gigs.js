@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import gigData from '../../../helpers/data/gigData';
 import authData from '../../../helpers/data/authData';
-import GigCard from '../../shared/GigCard/GigCard';
+import GigCardSmall from '../../shared/GigCardSmall/GigCardSmall';
 
 import './Gigs.scss';
 
@@ -27,7 +27,7 @@ class Gig extends React.Component {
       <div className="Gigs">
       <h2>Gigs Page</h2>
       <Link className="btn btn-secondary" to="/gig/:gigId/roster">To Roster</Link>
-      {this.state.gigs.map((gigs) => <GigCard key={gigs.id} gig={gigs} />)}
+      {this.state.gigs.map((gig) => <GigCardSmall key={gig.id} gig={gig} />)}
       </div>
     );
   }

@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import gigData from '../../../helpers/data/gigData';
 import authData from '../../../helpers/data/authData';
-import GigCardSmall from '../../shared/GigCardSmall/GigCardSmall';
+import GigCard from '../../shared/GigCard/GigCard';
 
 import './Gigs.scss';
 
 class Gig extends React.Component {
   state = {
-    gigs: [],
+    allGigs: [],
   }
 
   getGigs = () => {
     gigData.getGigsByUid(authData.getUid())
-      .then((gigs) => this.setState({ gigs }))
+      .then((request) => this.setState({ allGigs: request }))
       .catch((error) => console.error(error));
   }
 
@@ -27,7 +27,7 @@ class Gig extends React.Component {
       <div className="Gigs">
       <h2>Gigs Page</h2>
       <Link className="btn btn-secondary" to="/gig/:gigId/roster">To Roster</Link>
-      {this.state.gigs.map((gig) => <GigCardSmall key={gig.id} gig={gig} />)}
+      {this.state.allGigs.map((gig) => <GigCard key={gig.id} gig={gig} />)}
       </div>
     );
   }

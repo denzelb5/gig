@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import gigShape from '../../../helpers/propz/gigShape';
 
@@ -7,11 +7,6 @@ import gigShape from '../../../helpers/propz/gigShape';
 import './GigCard.scss';
 
 class GigCard extends React.Component {
-  static propTypes = {
-    gig: PropTypes.arrayOf(gigShape.gigShape),
-  }
-
-
   render() {
     const { gig } = this.props;
     return (
@@ -42,6 +37,7 @@ class GigCard extends React.Component {
   <p>Contractor Email: {gig.contractorEmail}</p>
     <p>Contractor Phone: {gig.contractorPhone}</p>
 </div>
+<Link className="btn btn-success" to={`/gig/:${gig.id}`}>View Gig</Link>
 </div>
       </div>
     </div>

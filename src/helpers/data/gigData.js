@@ -19,12 +19,14 @@ const getGigsByUid = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSingleGig = (gigId) => axios.get(`${baseUrl}/gigs/${gigId}.json`);
 const deleteGig = (gigId) => axios.delete(`${baseUrl}/gigs/${gigId}.json`);
 const addGig = (newGig) => axios.post(`${baseUrl}/gigs.json`, newGig);
 const updateGig = (gigId, newGigInfo) => axios.put(`${baseUrl}/gigs/${gigId}.json`, newGigInfo);
 
 export default {
   getGigsByUid,
+  getSingleGig,
   addGig,
   updateGig,
   deleteGig,

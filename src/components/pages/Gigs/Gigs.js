@@ -8,12 +8,12 @@ import './Gigs.scss';
 
 class Gig extends React.Component {
   state = {
-    gigs: [],
+    allGigs: [],
   }
 
   getGigs = () => {
     gigData.getGigsByUid(authData.getUid())
-      .then((gigs) => this.setState({ gigs }))
+      .then((request) => this.setState({ allGigs: request }))
       .catch((error) => console.error(error));
   }
 
@@ -21,13 +21,13 @@ class Gig extends React.Component {
     this.getGigs();
   }
 
+
   render() {
-    // const { gig } = this.props;
     return (
       <div className="Gigs">
       <h2>Gigs Page</h2>
       <Link className="btn btn-secondary" to="/gig/:gigId/roster">To Roster</Link>
-      {this.state.gigs.map((gigs) => <GigCard key={gigs.id} gig={gigs} />)}
+      {this.state.allGigs.map((gig) => <GigCard key={gig.id} gig={gig} />)}
       </div>
     );
   }

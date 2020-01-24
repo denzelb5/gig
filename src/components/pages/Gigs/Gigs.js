@@ -21,8 +21,8 @@ class Gig extends React.Component {
     this.getGigs();
   }
 
+
   render() {
-    // const { gig } = this.props;
     return (
       <div className="Gigs">
       <h2>Gigs Page</h2>

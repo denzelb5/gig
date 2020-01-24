@@ -1,5 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import gigShape from '../../../helpers/propz/gigShape';
 
 
@@ -7,7 +8,7 @@ import './GigCard.scss';
 
 class GigCard extends React.Component {
   static propTypes = {
-    gig: gigShape.gigShape,
+    gig: PropTypes.arrayOf(gigShape.gigShape),
   }
 
 

@@ -10,6 +10,7 @@ import './GigForm.scss';
 class GigForm extends React.Component {
   state = {
     instruments: [],
+    instrumentsCheckboxes: [],
     gigName: '',
     gigDescription: '',
     gigConcertDate: '',
@@ -29,6 +30,32 @@ class GigForm extends React.Component {
   getInstruments = () => {
     instrumentData.getAllInstruments()
       .then((instruments) => this.setState({ instruments }))
+      .catch((error) => console.error(error));
+  }
+
+  handleCheckboxes = (event) => {
+    const { instrumentsCheckboxes } = this.state;
+    instrumentsCheckboxes.forEach((instrumentsCheckbox) => {
+      if (instrumentsCheckbox.id === event.target.value) {
+        // eslint-disable-next-line no-param-reassign
+        instrumentsCheckbox.isChecked = event.target.checked;
+        console.log('checked', instrumentsCheckbox.isChecked);
+      }
+    });
+    this.setState({ instruments: this.instrument });
+  }
+
+  getInstrumentCheckboxData = () => {
+    instrumentData.getAllInstruments()
+      .then((result) => {
+        const instrumentsArr = result;
+        const newInstruments = [];
+        Object.keys(instrumentsArr).forEach((fbId) => {
+          instrumentsArr[fbId].isChecked = false;
+          newInstruments.push(instrumentsArr[fbId]);
+        });
+        this.setState({ instrumentsCheckboxes: newInstruments });
+      })
       .catch((error) => console.error(error));
   }
 
@@ -57,6 +84,7 @@ class GigForm extends React.Component {
         .catch((error) => console.error(error));
     }
     this.getInstruments();
+    this.getInstrumentCheckboxData();
   }
 
   nameChange = (e) => {
@@ -169,8 +197,10 @@ class GigForm extends React.Component {
       gigContractorPhone,
       gigReportoire,
       gigIsOutside,
+      instrumentsCheckboxes,
     } = this.state;
     const { gigId } = this.props.match.params;
+
     return (
       <div className="gigForm">
       <h1>GigForm add</h1>
@@ -329,7 +359,7 @@ class GigForm extends React.Component {
           onChange={this.isOutsideChange}
           />
         </div>
-        {this.state.instruments.map((instrument) => <InstrumentRow key={instrument.id} instrument={instrument} />)}
+        {instrumentsCheckboxes.map((instrumentsCheckbox) => <InstrumentRow key={instrumentsCheckbox.id} instrumentsCheckbox={instrumentsCheckbox} handleCheckboxes={this.handleCheckboxes} />)}
         { !gigId
           ? <button className="btn btn-warning" onClick={this.saveGigEvent}>Save Gig</button>
           : <button className="btn btn-primary" onClick={this.editBoardEvent}>Edit Gig</button>

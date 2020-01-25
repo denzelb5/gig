@@ -1,14 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import instrumentRowShape from '../../../helpers/propz/instrumentRowShape';
 import './InstrumentRow.scss';
+import instrumentsCheckboxShape from '../../../helpers/propz/instrumentsCheckboxShape';
 
 class InstrumentRow extends React.Component {
   static propTypes = {
     instrument: instrumentRowShape.instrumentRowShape,
+    instrumentsCheckbox: instrumentsCheckboxShape,
+    handleCheckboxes: PropTypes.func,
   }
 
   render() {
-    const { instrument } = this.props;
+    const { instrumentsCheckbox, handleCheckboxes } = this.props;
     return (
       // <div className="instrument d-flex">
       //   <div className="form-row form-check">
@@ -24,14 +28,14 @@ class InstrumentRow extends React.Component {
       <form>
   <div className="form-row align-items-center">
   <div className="col-auto">
-      <label className="sr-only" for="inlineFormInput">Name</label>
+      <label className="sr-only" htmlFor="inlineFormInput">Name</label>
       <input type="text" className="form-control" id="inlineFormInput" placeholder="Qty"/>
     </div>
   <div className="col-auto">
       <div className="form-check mb-2">
-        <input className="form-check-input" type="checkbox" id={instrument.id}/>
-        <label className="form-check-label" for="autoSizingCheck">
-          {instrument.name}
+        <input className="form-check-input" onChange={handleCheckboxes} type="checkbox" value={instrumentsCheckbox.id} id={instrumentsCheckbox.id}/>
+        <label className="form-check-label" htmlFor="autoSizingCheck">
+          {instrumentsCheckbox.name}
         </label>
       </div>
     </div>

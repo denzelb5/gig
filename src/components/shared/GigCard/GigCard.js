@@ -37,7 +37,7 @@ class GigCard extends React.Component {
   <p>Contractor Email: {gig.contractorEmail}</p>
     <p>Contractor Phone: {gig.contractorPhone}</p>
 </div>
-<Link className="btn btn-success" to={`/gig/:${gig.id}`}>View Gig</Link>
+<Link className="btn btn-success" to={`/gig/${gig.id}`}>View Gig</Link>
 </div>
       </div>
     </div>

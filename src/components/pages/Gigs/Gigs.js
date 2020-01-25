@@ -21,13 +21,18 @@ class Gig extends React.Component {
     this.getGigs();
   }
 
+  deleteGig = (gigId) => {
+    gigData.deleteGig(gigId)
+      .then(() => this.getGigs())
+      .catch((error) => console.error(error));
+  }
 
   render() {
     return (
       <div className="Gigs">
       <h2>Gigs Page</h2>
       <Link className="btn btn-secondary" to="/gig/:gigId/roster">To Roster</Link>
-      {this.state.allGigs.map((gig) => <GigCard key={gig.id} gig={gig} />)}
+      {this.state.allGigs.map((gig) => <GigCard key={gig.id} gig={gig} deleteGig={this.deleteGig} />)}
       </div>
     );
   }

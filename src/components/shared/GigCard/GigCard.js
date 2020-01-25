@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import gigShape from '../../../helpers/propz/gigShape';
+// import PropTypes from 'prop-types';
+// import gigShape from '../../../helpers/propz/gigShape';
 
 
 import './GigCard.scss';

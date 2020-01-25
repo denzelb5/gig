@@ -1,12 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import gigShape from '../../../helpers/propz/gigShape';
 
 
 import './GigCard.scss';
 
 class GigCard extends React.Component {
+  static propTypes = {
+    deleteGig: PropTypes.func,
+  }
+
+
+  deleteGigEvent = (e) => {
+    e.preventDefault();
+    const { deleteGig, gig } = this.props;
+    deleteGig(gig.id);
+  }
+
   render() {
     const { gig } = this.props;
     return (
@@ -38,6 +49,7 @@ class GigCard extends React.Component {
     <p>Contractor Phone: {gig.contractorPhone}</p>
 </div>
 <Link className="btn btn-success" to={`/gig/${gig.id}`}>View Gig</Link>
+<button className="btn btn-danger" onClick={this.deleteGigEvent}>Delete</button>
 </div>
       </div>
     </div>

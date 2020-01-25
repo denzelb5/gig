@@ -1,12 +1,15 @@
 import React from 'react';
 import gigData from '../../../helpers/data/gigData';
 import authData from '../../../helpers/data/authData';
+import instrumentData from '../../../helpers/data/instrumentData';
+import InstrumentRow from '../../shared/InstrumentRow/InstrumentRow';
 
 import './GigForm.scss';
 
 
 class GigForm extends React.Component {
   state = {
+    instruments: [],
     gigName: '',
     gigDescription: '',
     gigConcertDate: '',
@@ -21,6 +24,12 @@ class GigForm extends React.Component {
     gigContractorPhone: '',
     gigReportoire: '',
     gigIsOutside: '',
+  }
+
+  getInstruments = () => {
+    instrumentData.getAllInstruments()
+      .then((instruments) => this.setState({ instruments }))
+      .catch((error) => console.error(error));
   }
 
   componentDidMount() {
@@ -39,7 +48,7 @@ class GigForm extends React.Component {
             gigRehearsalDate: response.data.rehearsalDate,
             gigRehearsalTime: response.data.rehearsalTime,
             gigRehearsalLocation: response.data.rehearsalLocation,
-            gigContractorEmail: response.data.conctractorEmail,
+            gigContractorEmail: response.data.contractorEmail,
             gigContractorPhone: response.data.contractorPhone,
             gigReportoire: response.data.reportoire,
             gigIsOutside: response.data.isOutside,
@@ -47,6 +56,7 @@ class GigForm extends React.Component {
         })
         .catch((error) => console.error(error));
     }
+    this.getInstruments();
   }
 
   nameChange = (e) => {
@@ -132,14 +142,14 @@ class GigForm extends React.Component {
       rehearsalDate: this.state.gigRehearsalDate,
       rehearsalTime: this.state.gigRehearsalTime,
       rehearsalLocation: this.state.gigRehearsalLocation,
-      contractorEmail: this.state.gigConctractorEmail,
+      contractorEmail: this.state.gigContractorEmail,
       contractorPhone: this.state.gigContractorPhone,
       reportoire: this.state.gigReportoire,
       isOutside: this.state.gigIsOutside,
       uid: authData.getUid(),
     };
     gigData.addGig(newGig)
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push('/gigs'))
       .catch((error) => console.error(error));
   }
 
@@ -165,8 +175,8 @@ class GigForm extends React.Component {
       <div className="gigForm">
       <h1>GigForm add</h1>
       <form className="Auth">
+        <div className=" col-md-4">
         <div className="form-group">
-          <label htmlFor="gig-name">Gig Name</label>
           <input
           type="text"
           className="form-control"
@@ -314,15 +324,17 @@ class GigForm extends React.Component {
           type="text"
           className="form-control"
           id="gig-isOutside"
-          placeholder="Gig Outdoors Y/N?"
+          placeholder="Gig Outdoors Yes/No?"
           value={gigIsOutside}
           onChange={this.isOutsideChange}
           />
         </div>
+        {this.state.instruments.map((instrument) => <InstrumentRow key={instrument.id} instrument={instrument} />)}
         { !gigId
           ? <button className="btn btn-warning" onClick={this.saveGigEvent}>Save Gig</button>
           : <button className="btn btn-primary" onClick={this.editBoardEvent}>Edit Gig</button>
         }
+        </div>
       </form>
       </div>
     );

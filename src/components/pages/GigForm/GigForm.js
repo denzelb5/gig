@@ -181,6 +181,32 @@ class GigForm extends React.Component {
       .catch((error) => console.error(error));
   }
 
+  editGigEvent = (e) => {
+    e.preventDefault();
+    const { gigId } = this.props.match.params;
+    const editGig = {
+      name: this.state.gigName,
+      description: this.state.gigDescription,
+      concertDate: this.state.gigConcertDate,
+      concertTime: this.state.gigConcertTime,
+      concertLocation: this.state.gigConcertLocation,
+      concertDress: this.state.gigConcertDress,
+      basePayTotal: this.state.gigBasePayTotal,
+      rehearsalDate: this.state.gigRehearsalDate,
+      rehearsalTime: this.state.gigRehearsalTime,
+      rehearsalLocation: this.state.gigRehearsalLocation,
+      contractorEmail: this.state.gigContractorEmail,
+      contractorPhone: this.state.gigContractorPhone,
+      reportoire: this.state.gigReportoire,
+      isOutside: this.state.gigIsOutside,
+      uid: authData.getUid(),
+    };
+    console.log('editGig', editGig);
+    gigData.updateGig(gigId, editGig)
+      .then(() => this.props.history.push(`/gigs/${gigId}`))
+      .catch((error) => console.error(error));
+  }
+
   render() {
     const {
       gigName,
@@ -362,7 +388,7 @@ class GigForm extends React.Component {
         {instrumentsCheckboxes.map((instrumentsCheckbox) => <InstrumentRow key={instrumentsCheckbox.id} instrumentsCheckbox={instrumentsCheckbox} handleCheckboxes={this.handleCheckboxes} />)}
         { !gigId
           ? <button className="btn btn-warning" onClick={this.saveGigEvent}>Save Gig</button>
-          : <button className="btn btn-primary" onClick={this.editBoardEvent}>Edit Gig</button>
+          : <button className="btn btn-primary" onClick={this.editGigEvent}>Edit Gig</button>
         }
         </div>
       </form>

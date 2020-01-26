@@ -7,7 +7,7 @@ import instrumentsCheckboxShape from '../../../helpers/propz/instrumentsCheckbox
 class InstrumentRow extends React.Component {
   static propTypes = {
     instrument: instrumentRowShape.instrumentRowShape,
-    instrumentsCheckbox: instrumentsCheckboxShape,
+    instrumentsCheckbox: instrumentsCheckboxShape.instrumentsCheckboxShape,
     handleCheckboxes: PropTypes.func,
   }
 

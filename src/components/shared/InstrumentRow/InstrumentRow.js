@@ -7,41 +7,32 @@ import instrumentsCheckboxShape from '../../../helpers/propz/instrumentsCheckbox
 class InstrumentRow extends React.Component {
   static propTypes = {
     instrument: instrumentRowShape.instrumentRowShape,
-    instrumentsCheckbox: instrumentsCheckboxShape,
+    instrumentsCheckbox: instrumentsCheckboxShape.instrumentsCheckboxShape,
     handleCheckboxes: PropTypes.func,
+    // numberChange: PropTypes.func,
   }
 
   render() {
     const { instrumentsCheckbox, handleCheckboxes } = this.props;
+    // const { gigNumber } = this.state;
     return (
-      // <div className="instrument d-flex">
-      //   <div className="form-row form-check">
-      //     <input type="checkbox" className="form-check-input" id={instrument.id}/>
-      //     <label className="form-check-label" htmlFor={instrument.id}>{instrument.name}</label>
-      //   <div class="form-group col-md-1">
-      //     <label for="inputZip">How Many?</label>
-      //     <input type="text" class="form-control" id="inputZip"/>
-      //   </div>
-      //   </div>
-      // </div>
-      <div className="instrumentRow">
       <form>
-  <div className="form-row align-items-center">
-  <div className="col-auto">
-      <label className="sr-only" htmlFor="inlineFormInput">Name</label>
-      <input type="text" className="form-control" id="inlineFormInput" placeholder="Qty"/>
-    </div>
-  <div className="col-auto">
-      <div className="form-check mb-2">
-        <input className="form-check-input" onChange={handleCheckboxes} type="checkbox" value={instrumentsCheckbox.id} id={instrumentsCheckbox.id}/>
-        <label className="form-check-label" htmlFor="autoSizingCheck">
-          {instrumentsCheckbox.name}
-        </label>
-      </div>
-    </div>
-  </div>
-</form>
-</div>
+        <div className="col-auto">
+          <div className="form-check mb-2">
+            <input className="form-check-input" onChange={handleCheckboxes} type="checkbox" value={instrumentsCheckbox.id} id={instrumentsCheckbox.id}/>
+            <label className="form-check-label" htmlFor="autoSizingCheck">
+              {instrumentsCheckbox.name}
+            </label>
+          </div>
+          {/* <select onChange={numberChange} value={gigNumber} className="custom-select custom-select-sm col-1">
+          <option selected>Qty</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select> */}
+        </div>
+      </form>
+
     );
   }
 }

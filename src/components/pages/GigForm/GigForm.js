@@ -2,6 +2,7 @@ import React from 'react';
 import gigData from '../../../helpers/data/gigData';
 import authData from '../../../helpers/data/authData';
 import instrumentData from '../../../helpers/data/instrumentData';
+import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
 import InstrumentRow from '../../shared/InstrumentRow/InstrumentRow';
 
 import './GigForm.scss';
@@ -9,7 +10,7 @@ import './GigForm.scss';
 
 class GigForm extends React.Component {
   state = {
-    instruments: [],
+    gigInstruments: [],
     instrumentsCheckboxes: [],
     gigName: '',
     gigDescription: '',
@@ -25,7 +26,14 @@ class GigForm extends React.Component {
     gigContractorPhone: '',
     gigReportoire: '',
     gigIsOutside: '',
+    // gigNumber: '',
   }
+
+  // getGigInstruments = () => {
+  //   gigInstrumentData.getAllGigInstruments()
+  //     .then((response) => this.setState({ gigNumber: response.data.number }))
+  //     .catch((error) => console.error(error));
+  // }
 
   getInstruments = () => {
     instrumentData.getAllInstruments()
@@ -59,7 +67,7 @@ class GigForm extends React.Component {
       .catch((error) => console.error(error));
   }
 
-  componentDidMount() {
+  getGigData = () => {
     const { gigId } = this.props.match.params;
     if (gigId) {
       gigData.getSingleGig(gigId)
@@ -83,8 +91,13 @@ class GigForm extends React.Component {
         })
         .catch((error) => console.error(error));
     }
+  }
+
+  componentDidMount() {
+    this.getGigData();
     this.getInstruments();
     this.getInstrumentCheckboxData();
+    // this.getGigInstruments();
   }
 
   nameChange = (e) => {
@@ -157,6 +170,11 @@ class GigForm extends React.Component {
     this.setState({ gigIsOutside: e.target.value });
   }
 
+  // numberChange = (e) => {
+  //   e.preventDefault();
+  //   this.setState({ gigNumber: e.target.value });
+  // }
+
   saveGigEvent = (e) => {
     e.preventDefault();
     const newGig = {
@@ -175,9 +193,37 @@ class GigForm extends React.Component {
       reportoire: this.state.gigReportoire,
       isOutside: this.state.gigIsOutside,
       uid: authData.getUid(),
+      // number: this.state.gigNumber,
     };
     gigData.addGig(newGig)
       .then(() => this.props.history.push('/gigs'))
+      .catch((error) => console.error(error));
+  }
+
+  editGigEvent = (e) => {
+    e.preventDefault();
+    const { gigId } = this.props.match.params;
+    const editGig = {
+      name: this.state.gigName,
+      description: this.state.gigDescription,
+      concertDate: this.state.gigConcertDate,
+      concertTime: this.state.gigConcertTime,
+      concertLocation: this.state.gigConcertLocation,
+      concertDress: this.state.gigConcertDress,
+      basePayTotal: this.state.gigBasePayTotal,
+      rehearsalDate: this.state.gigRehearsalDate,
+      rehearsalTime: this.state.gigRehearsalTime,
+      rehearsalLocation: this.state.gigRehearsalLocation,
+      contractorEmail: this.state.gigContractorEmail,
+      contractorPhone: this.state.gigContractorPhone,
+      reportoire: this.state.gigReportoire,
+      isOutside: this.state.gigIsOutside,
+      uid: authData.getUid(),
+      number: this.state.gigNumber,
+    };
+    console.log('editGig', editGig);
+    gigData.updateGig(gigId, editGig)
+      .then(() => this.props.history.push(`/gig/${gigId}`))
       .catch((error) => console.error(error));
   }
 
@@ -197,8 +243,10 @@ class GigForm extends React.Component {
       gigContractorPhone,
       gigReportoire,
       gigIsOutside,
+      // gigNumber,
       instrumentsCheckboxes,
     } = this.state;
+
     const { gigId } = this.props.match.params;
 
     return (
@@ -359,13 +407,15 @@ class GigForm extends React.Component {
           onChange={this.isOutsideChange}
           />
         </div>
-        {instrumentsCheckboxes.map((instrumentsCheckbox) => <InstrumentRow key={instrumentsCheckbox.id} instrumentsCheckbox={instrumentsCheckbox} handleCheckboxes={this.handleCheckboxes} />)}
-        { !gigId
-          ? <button className="btn btn-warning" onClick={this.saveGigEvent}>Save Gig</button>
-          : <button className="btn btn-primary" onClick={this.editBoardEvent}>Edit Gig</button>
-        }
         </div>
       </form>
+      {instrumentsCheckboxes.map((instrumentsCheckbox) => <InstrumentRow key={instrumentsCheckbox.id} instrumentsCheckbox={instrumentsCheckbox} handleCheckboxes={this.handleCheckboxes} />)}
+      <div>
+      </div>
+      { !gigId
+        ? <button className="btn btn-warning" onClick={this.saveGigEvent}>Save Gig</button>
+        : <button className="btn btn-primary" onClick={this.editGigEvent}>Edit Gig</button>
+        }
       </div>
     );
   }

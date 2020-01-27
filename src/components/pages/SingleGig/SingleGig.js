@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import GigInstrument from '../../shared/GigInstrument/GigInstrument';
-import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
+// import GigInstrument from '../../shared/GigInstrument/GigInstrument';
+
 import GigInstrumentPlayer from '../../shared/GigInstrumentPlayer/GigInstrumentPlayer';
 import gigInstrumentPlayerData from '../../../helpers/data/gigInstrumentPlayerData';
 import authData from '../../../helpers/data/authData';
@@ -16,14 +16,8 @@ class SingleGig extends React.Component {
   state = {
     gig: {},
     gigs: [],
-    gigInstruments: [],
+    // gigInstruments: [],
     gigInstrumentPlayers: [],
-  }
-
-  getGigInstruments = () => {
-    gigInstrumentData.getAllGigInstruments()
-      .then((gigInstruments) => this.setState({ gigInstruments }))
-      .catch((error) => console.error(error));
   }
 
   getGigInstrumentPlayers = () => {
@@ -51,7 +45,7 @@ class SingleGig extends React.Component {
   }
 
   componentDidMount() {
-    this.getGigInstruments();
+    // this.getGigInstruments();
     this.getGigInstrumentPlayers();
     this.getGigData();
     this.getCurrentGig();
@@ -66,7 +60,7 @@ class SingleGig extends React.Component {
         <h1>SingleGig Page</h1>
         <GigCard key={gig.id} gig={gig}/>
         {/* { gigs.map((gig) => <GigCard key={gig.id} gig={gig} />)} */}
-        { this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} gigInstrument={gigInstrument} />) }
+        {/* { this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} gigInstrument={gigInstrument} />) } */}
         <h1>GigInstrumentPlayers</h1>
         { this.state.gigInstrumentPlayers.map((gigInstrumentPlayer) => <GigInstrumentPlayer key={gigInstrumentPlayer.id} gigInstrumentPlayer={gigInstrumentPlayer} />) }
       </div>

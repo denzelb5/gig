@@ -12,6 +12,7 @@ class GigInstrument extends React.Component {
     const { gigInstrument } = this.props;
     return (
       <div className="gig-instrument">
+        <h3 className="instrumentName">{gigInstrument.name}</h3>
         <h5 className="list-group-item">Number: {gigInstrument.number}</h5>
       </div>
     );

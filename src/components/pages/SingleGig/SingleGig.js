@@ -1,9 +1,9 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-// import GigInstrument from '../../shared/GigInstrument/GigInstrument';
-
-import GigInstrumentPlayer from '../../shared/GigInstrumentPlayer/GigInstrumentPlayer';
-import gigInstrumentPlayerData from '../../../helpers/data/gigInstrumentPlayerData';
+import GigInstrument from '../../shared/GigInstrument/GigInstrument';
+import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
+// import GigInstrumentPlayer from '../../shared/GigInstrumentPlayer/GigInstrumentPlayer';
+// import gigInstrumentPlayerData from '../../../helpers/data/gigInstrumentPlayerData';
 import authData from '../../../helpers/data/authData';
 // import gigData from '../../../helpers/data/gigData';
 // import gigShape from '../../../helpers/propz/gigShape';
@@ -16,15 +16,15 @@ class SingleGig extends React.Component {
   state = {
     gig: {},
     gigs: [],
-    // gigInstruments: [],
-    gigInstrumentPlayers: [],
+    gigInstruments: [],
+    // gigInstrumentPlayers: [],
   }
 
-  getGigInstrumentPlayers = () => {
-    gigInstrumentPlayerData.getAllGigInstrumentPlayers()
-      .then((gigInstrumentPlayers) => this.setState({ gigInstrumentPlayers }))
-      .catch((error) => console.error(error));
-  }
+  // getGigInstrumentPlayers = () => {
+  //   gigInstrumentPlayerData.getAllGigInstrumentPlayers()
+  //     .then((gigInstrumentPlayers) => this.setState({ gigInstrumentPlayers }))
+  //     .catch((error) => console.error(error));
+  // }
 
   getGigData = (gigId) => {
     gigData.getGigsByUid(authData.getUid())
@@ -32,9 +32,16 @@ class SingleGig extends React.Component {
       .catch((error) => console.error(error));
   }
 
+  getCurrentGigInstruments = () => {
+    const { gigId } = this.props.match.params;
+    console.log('gigId', gigId);
+    gigInstrumentData.getAllGigInstrumentsByGigId(gigId)
+      .then((response) => this.setState({ gigInstruments: response }))
+      .catch((error) => console.error(error));
+  }
+
   getCurrentGig = () => {
     const { gigId } = this.props.match.params;
-    console.error('gigId', gigId);
     gigData.getSingleGig(gigId)
       .then((response) => {
         const gig = response.data;
@@ -45,8 +52,8 @@ class SingleGig extends React.Component {
   }
 
   componentDidMount() {
-    // this.getGigInstruments();
-    this.getGigInstrumentPlayers();
+    this.getCurrentGigInstruments();
+    // this.getGigInstrumentPlayers();
     this.getGigData();
     this.getCurrentGig();
   }
@@ -60,9 +67,9 @@ class SingleGig extends React.Component {
         <h1>SingleGig Page</h1>
         <GigCard key={gig.id} gig={gig}/>
         {/* { gigs.map((gig) => <GigCard key={gig.id} gig={gig} />)} */}
-        {/* { this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} gigInstrument={gigInstrument} />) } */}
+        { this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} gigInstrument={gigInstrument} />) }
         <h1>GigInstrumentPlayers</h1>
-        { this.state.gigInstrumentPlayers.map((gigInstrumentPlayer) => <GigInstrumentPlayer key={gigInstrumentPlayer.id} gigInstrumentPlayer={gigInstrumentPlayer} />) }
+        {/* { this.state.gigInstrumentPlayers.map((gigInstrumentPlayer) => <GigInstrumentPlayer key={gigInstrumentPlayer.id} gigInstrumentPlayer={gigInstrumentPlayer} />) } */}
       </div>
     );
   }

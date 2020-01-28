@@ -1,16 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import gigData from '../../../helpers/data/gigData';
 import authData from '../../../helpers/data/authData';
 import instrumentData from '../../../helpers/data/instrumentData';
-import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
+// import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
 import InstrumentRow from '../../shared/InstrumentRow/InstrumentRow';
 
 import './GigForm.scss';
+import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
 
 
 class GigForm extends React.Component {
   state = {
-    gigInstruments: [],
+    // gigInstruments: [],
     instrumentsCheckboxes: [],
     gigName: '',
     gigDescription: '',
@@ -29,17 +33,6 @@ class GigForm extends React.Component {
     // gigNumber: '',
   }
 
-  // getGigInstruments = () => {
-  //   gigInstrumentData.getAllGigInstruments()
-  //     .then((response) => this.setState({ gigNumber: response.data.number }))
-  //     .catch((error) => console.error(error));
-  // }
-
-  getInstruments = () => {
-    instrumentData.getAllInstruments()
-      .then((instruments) => this.setState({ instruments }))
-      .catch((error) => console.error(error));
-  }
 
   handleCheckboxes = (event) => {
     const { instrumentsCheckboxes } = this.state;
@@ -95,7 +88,7 @@ class GigForm extends React.Component {
 
   componentDidMount() {
     this.getGigData();
-    this.getInstruments();
+    // this.getInstruments();
     this.getInstrumentCheckboxData();
     // this.getGigInstruments();
   }
@@ -177,6 +170,7 @@ class GigForm extends React.Component {
 
   saveGigEvent = (e) => {
     e.preventDefault();
+
     const newGig = {
       name: this.state.gigName,
       description: this.state.gigDescription,
@@ -196,8 +190,31 @@ class GigForm extends React.Component {
       // number: this.state.gigNumber,
     };
     gigData.addGig(newGig)
-      .then(() => this.props.history.push('/gigs'))
+      .then((result) => {
+        this.saveGigInstruments(result.data.name);
+        this.props.history.push(`/gig/${result.data.name}`);
+      })
       .catch((error) => console.error(error));
+  }
+
+  saveGigInstruments = (gigId) => {
+    const { instrumentsCheckboxes } = this.state;
+    const myInstruments = instrumentsCheckboxes.filter((x) => x.isChecked);
+    if (myInstruments.length) {
+      myInstruments.forEach((instrument) => {
+        const newGigInstrument = {
+          instrumentId: instrument.id,
+          gigId, // need way to get gigid being created in savegigevent
+          number: 1, // instrument.number
+        };
+        gigInstrumentData.addGigInstrument(newGigInstrument)
+          .then()
+          .catch((err) => console.error(err, 'error from save gig instruments'));
+      });
+    }
+    // gigInstrumentData.addGigInstrument(newGigInstruments)
+    //   .then((result) => this.props.history.push(`/gig/${result.data.name}`))
+    //   .catch((error) => console.error(error));
   }
 
   editGigEvent = (e) => {
@@ -246,6 +263,7 @@ class GigForm extends React.Component {
       // gigNumber,
       instrumentsCheckboxes,
     } = this.state;
+
 
     const { gigId } = this.props.match.params;
 
@@ -409,8 +427,9 @@ class GigForm extends React.Component {
         </div>
         </div>
       </form>
-      {instrumentsCheckboxes.map((instrumentsCheckbox) => <InstrumentRow key={instrumentsCheckbox.id} instrumentsCheckbox={instrumentsCheckbox} handleCheckboxes={this.handleCheckboxes} />)}
+      {instrumentsCheckboxes.map((instrumentsCheckbox) => <InstrumentRow key={instrumentsCheckbox.id} instrumentsCheckboxName={instrumentsCheckbox.name} instrumentsCheckbox={instrumentsCheckbox} handleCheckboxes={this.handleCheckboxes} />)}
       <div>
+      <Link className="btn btn-secondary" to="/gig/:gigId/roster">To Roster</Link>
       </div>
       { !gigId
         ? <button className="btn btn-warning" onClick={this.saveGigEvent}>Save Gig</button>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 import 'firebase/auth';
 import gigData from '../../../helpers/data/gigData';
 import authData from '../../../helpers/data/authData';
@@ -202,19 +202,17 @@ class GigForm extends React.Component {
     const myInstruments = instrumentsCheckboxes.filter((x) => x.isChecked);
     if (myInstruments.length) {
       myInstruments.forEach((instrument) => {
+        console.log(myInstruments);
         const newGigInstrument = {
           instrumentId: instrument.id,
-          gigId, // need way to get gigid being created in savegigevent
+          gigId,
           number: 1, // instrument.number
         };
         gigInstrumentData.addGigInstrument(newGigInstrument)
           .then()
-          .catch((err) => console.error(err, 'error from save gig instruments'));
+          .catch((error) => console.error(error));
       });
     }
-    // gigInstrumentData.addGigInstrument(newGigInstruments)
-    //   .then((result) => this.props.history.push(`/gig/${result.data.name}`))
-    //   .catch((error) => console.error(error));
   }
 
   editGigEvent = (e) => {

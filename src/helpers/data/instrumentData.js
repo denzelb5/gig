@@ -19,6 +19,7 @@ const getAllInstruments = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSingleGigInstruments = (instrumentId) => axios.get(`${baseUrl}/instruments/${instrumentId}.json`);
 const deleteInstruments = (instrumentId) => axios.delete(`${baseUrl}/players/${instrumentId}.json`);
 const addInstruments = (newInstrument) => axios.post(`${baseUrl}/players.json`, newInstrument);
 const updateInstruments = (instrumentId, newInstrumentInfo) => axios.put(`${baseUrl}/instruments/${instrumentId}.json`, newInstrumentInfo);

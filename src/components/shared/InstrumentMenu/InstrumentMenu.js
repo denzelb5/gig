@@ -1,17 +1,17 @@
-import React from 'react';
+// import React from 'react';
 
-import './InstrumentMenu.scss';
+// import './InstrumentMenu.scss';
 
-class InstrumentMenu extends React.Component {
-  render() {
-    const { instrumentsCheckboxName } = this.props;
-    return (
-      <div>
-      <p>Is this printing?</p>
-      <h1>{instrumentsCheckboxName}</h1>
-      </div>
-    );
-  }
-}
+// class InstrumentMenu extends React.Component {
+//   render() {
+//     const { gigInstrument } = this.props;
+//     return (
+//       <div>
+//       <p>Is this printing?</p>
+//       <h1>{gigInstrument.name}</h1>
+//       </div>
+//     );
+//   }
+// }
 
-export default InstrumentMenu;
+// export default InstrumentMenu;

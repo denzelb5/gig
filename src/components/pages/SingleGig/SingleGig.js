@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import GigInstrument from '../../shared/GigInstrument/GigInstrument';
 import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
+import InstrumentMenu from '../../shared/InstrumentMenu/InstrumentMenu';
 // import GigInstrumentPlayer from '../../shared/GigInstrumentPlayer/GigInstrumentPlayer';
 // import gigInstrumentPlayerData from '../../../helpers/data/gigInstrumentPlayerData';
 import authData from '../../../helpers/data/authData';
@@ -11,12 +12,15 @@ import GigCard from '../../shared/GigCard/GigCard';
 
 import './SingleGig.scss';
 import gigData from '../../../helpers/data/gigData';
+import instrumentData from '../../../helpers/data/instrumentData';
 
 class SingleGig extends React.Component {
   state = {
     gig: {},
     gigs: [],
+    gigInstrument: {},
     gigInstruments: [],
+    allInstruments: [],
     // gigInstrumentPlayers: [],
   }
 
@@ -26,19 +30,15 @@ class SingleGig extends React.Component {
   //     .catch((error) => console.error(error));
   // }
 
-  getGigData = (gigId) => {
-    gigData.getGigsByUid(authData.getUid())
-      .then((request) => this.setState({ gigs: request }))
+
+  getInstruments = () => {
+    instrumentData.getAllInstruments()
+      .then((response) => {
+        this.setState({ allInstruments: response });
+      })
       .catch((error) => console.error(error));
   }
 
-  getCurrentGigInstruments = () => {
-    const { gigId } = this.props.match.params;
-    console.log('gigId', gigId);
-    gigInstrumentData.getAllGigInstrumentsByGigId(gigId)
-      .then((response) => this.setState({ gigInstruments: response }))
-      .catch((error) => console.error(error));
-  }
 
   getCurrentGig = () => {
     const { gigId } = this.props.match.params;
@@ -46,28 +46,33 @@ class SingleGig extends React.Component {
       .then((response) => {
         const gig = response.data;
         gig.id = gigId;
-        this.setState({ gig: response.data });
+        gigInstrumentData.getAllGigInstrumentsByGigId(gigId)
+          .then((gigInstruments) => {
+            console.log(response, 'response from getallinstrums');
+            this.setState({ gigInstruments, gig: response.data });
+            this.getInstruments();
+          })
+          .catch((error) => console.error(error));
       })
       .catch((error) => console.error(error));
   }
 
   componentDidMount() {
-    this.getCurrentGigInstruments();
+    // this.getCurrentGigInstruments();
     // this.getGigInstrumentPlayers();
-    this.getGigData();
     this.getCurrentGig();
   }
 
   render() {
-    // const { gigId } = this.props.match.params;
-    // const { gig } = this.props;
     const { gig } = this.state;
+
+    console.log('why am i undefined', this.state.gigInstruments);
     return (
       <div className="single-gig">
         <h1>SingleGig Page</h1>
+        {/* {this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} gigInstrument={gigInstrument} />)} */}
         <GigCard key={gig.id} gig={gig}/>
-        {/* { gigs.map((gig) => <GigCard key={gig.id} gig={gig} />)} */}
-        { this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} gigInstrument={gigInstrument} />) }
+        { this.state.gigInstruments.length && this.state.allInstruments.length && this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} instrument={this.state.allInstruments.find((i) => i.id === gigInstrument.instrumentId)} gigInstrument={gigInstrument} />) }
         <h1>GigInstrumentPlayers</h1>
         {/* { this.state.gigInstrumentPlayers.map((gigInstrumentPlayer) => <GigInstrumentPlayer key={gigInstrumentPlayer.id} gigInstrumentPlayer={gigInstrumentPlayer} />) } */}
       </div>

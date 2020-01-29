@@ -3,8 +3,8 @@ import apiKeys from '../apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getAllGigInstruments = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/gigInstruments.json`)
+const getAllGigInstrumentsByGigId = (gigId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/gigInstruments.json?orderBy="gigId"&equalTo="${gigId}"`)
     .then((result) => {
       const gigInstrumentObject = result.data;
       const gigInstruments = [];
@@ -15,6 +15,7 @@ const getAllGigInstruments = () => new Promise((resolve, reject) => {
         });
       }
       resolve(gigInstruments);
+      console.log('from gig ints data file', gigInstruments, gigId);
     })
     .catch((error) => reject(error));
 });
@@ -24,7 +25,7 @@ const addGigInstrument = (newGigInstrument) => axios.post(`${baseUrl}/gigInstrum
 const updateGigInstrument = (gigInstrumentId, newGigInstrumentInfo) => axios.put(`${baseUrl}/gigInstruments/${gigInstrumentId}.json`, newGigInstrumentInfo);
 
 export default {
-  getAllGigInstruments,
+  getAllGigInstrumentsByGigId,
   addGigInstrument,
   updateGigInstrument,
   deleteGigInstrument,

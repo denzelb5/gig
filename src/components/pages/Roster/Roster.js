@@ -43,7 +43,7 @@ class Roster extends React.Component {
       <Link className="btn btn-success" to="/gig/:gigId/edit">to gig edit</Link>
       <Link className="btn btn-success" to={`/gig/:${gigId}`}>View Gig</Link>
       {this.state.players.map((player) => <PlayerRow key={player.id} player={player} />)}
-      {this.state.instrumentNames.map((instrument) => <InstrumentMenu key={instrument.id} instrument={instrument}/>)}
+      {this.state.instrumentNames.map((instrument) => <InstrumentMenu key={instrument.id} instrument={instrument} />)}
       </div>
     );
   }

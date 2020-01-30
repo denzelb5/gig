@@ -1,20 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import firebase from 'firebase/app';
-import 'firebase/auth';
+import PropTypes from 'prop-types';
 import gigData from '../../../helpers/data/gigData';
 import authData from '../../../helpers/data/authData';
 import instrumentData from '../../../helpers/data/instrumentData';
-// import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
+import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
 import InstrumentRow from '../../shared/InstrumentRow/InstrumentRow';
+import gigInstrumentShape from '../../../helpers/propz/gigInstrumentShape';
 
 import './GigForm.scss';
-import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
 
 
 class GigForm extends React.Component {
+  static propTypes = {
+    allGigInstruments: PropTypes.arrayOf(gigInstrumentShape.gigInstrumentShape),
+  }
+
   state = {
-    // gigInstruments: [],
+    allGigInstruments: [],
     instrumentsCheckboxes: [],
     gigName: '',
     gigDescription: '',
@@ -30,7 +33,7 @@ class GigForm extends React.Component {
     gigContractorPhone: '',
     gigReportoire: '',
     gigIsOutside: '',
-    // gigNumber: '',
+    gigNumber: '',
   }
 
 
@@ -46,6 +49,16 @@ class GigForm extends React.Component {
     this.setState({ instruments: this.instrument });
   }
 
+  handleNumChange = (event) => {
+    event.preventDefault();
+    const newValue = parseInt(event.target.value, 10) || 0;
+    const instrumentId = event.target.id.split('-')[1];
+    const newCheckboxes = [...this.state.instrumentsCheckboxes];
+    const correctCheckbox = newCheckboxes.findIndex((obj) => obj.id === instrumentId);
+    newCheckboxes[correctCheckbox].numPlayers = newValue;
+    this.setState({ instrumentsCheckboxes: newCheckboxes });
+  }
+
   getInstrumentCheckboxData = () => {
     instrumentData.getAllInstruments()
       .then((result) => {
@@ -53,8 +66,10 @@ class GigForm extends React.Component {
         const newInstruments = [];
         Object.keys(instrumentsArr).forEach((fbId) => {
           instrumentsArr[fbId].isChecked = false;
+          instrumentsArr[fbId].numPlayers = 0;
           newInstruments.push(instrumentsArr[fbId]);
         });
+        console.log('zoe', newInstruments);
         this.setState({ instrumentsCheckboxes: newInstruments });
       })
       .catch((error) => console.error(error));
@@ -62,6 +77,7 @@ class GigForm extends React.Component {
 
   getGigData = () => {
     const { gigId } = this.props.match.params;
+    console.error('gigId fo sho', gigId);
     if (gigId) {
       gigData.getSingleGig(gigId)
         .then((response) => {
@@ -86,10 +102,17 @@ class GigForm extends React.Component {
     }
   }
 
+  getGigInstrumentData = () => {
+    gigInstrumentData.getAllGigInstruments()
+      .then((response) => this.setState({ allGigInstruments: response }))
+      .catch((error) => console.error(error));
+  }
+
   componentDidMount() {
     this.getGigData();
     // this.getInstruments();
     this.getInstrumentCheckboxData();
+    this.getGigInstrumentData();
     // this.getGigInstruments();
   }
 
@@ -163,14 +186,8 @@ class GigForm extends React.Component {
     this.setState({ gigIsOutside: e.target.value });
   }
 
-  // numberChange = (e) => {
-  //   e.preventDefault();
-  //   this.setState({ gigNumber: e.target.value });
-  // }
-
   saveGigEvent = (e) => {
     e.preventDefault();
-
     const newGig = {
       name: this.state.gigName,
       description: this.state.gigDescription,
@@ -187,7 +204,6 @@ class GigForm extends React.Component {
       reportoire: this.state.gigReportoire,
       isOutside: this.state.gigIsOutside,
       uid: authData.getUid(),
-      // number: this.state.gigNumber,
     };
     gigData.addGig(newGig)
       .then((result) => {
@@ -203,6 +219,7 @@ class GigForm extends React.Component {
     if (myInstruments.length) {
       myInstruments.forEach((instrument) => {
         console.log(myInstruments);
+        console.log('instrument from gigform', myInstruments);
         const newGigInstrument = {
           instrumentId: instrument.id,
           gigId,
@@ -258,12 +275,12 @@ class GigForm extends React.Component {
       gigContractorPhone,
       gigReportoire,
       gigIsOutside,
-      // gigNumber,
       instrumentsCheckboxes,
     } = this.state;
 
 
     const { gigId } = this.props.match.params;
+    const { gigInstrument } = this.props;
 
     return (
       <div className="gigForm">
@@ -425,9 +442,8 @@ class GigForm extends React.Component {
         </div>
         </div>
       </form>
-      {instrumentsCheckboxes.map((instrumentsCheckbox) => <InstrumentRow key={instrumentsCheckbox.id} instrumentsCheckboxName={instrumentsCheckbox.name} instrumentsCheckbox={instrumentsCheckbox} handleCheckboxes={this.handleCheckboxes} />)}
+      {instrumentsCheckboxes.map((instrumentsCheckbox) => <InstrumentRow key={instrumentsCheckbox.id} instrumentsCheckboxName={instrumentsCheckbox.name} instrumentsCheckbox={instrumentsCheckbox} handleCheckboxes={this.handleCheckboxes} handleNumChange={this.handleNumChange} />)}
       <div>
-      <Link className="btn btn-secondary" to="/gig/:gigId/roster">To Roster</Link>
       </div>
       { !gigId
         ? <button className="btn btn-warning" onClick={this.saveGigEvent}>Save Gig</button>

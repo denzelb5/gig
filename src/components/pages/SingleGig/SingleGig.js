@@ -1,14 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import GigInstrument from '../../shared/GigInstrument/GigInstrument';
 import gigInstrumentData from '../../../helpers/data/gigInstrumentData';
-import InstrumentMenu from '../../shared/InstrumentMenu/InstrumentMenu';
-// import GigInstrumentPlayer from '../../shared/GigInstrumentPlayer/GigInstrumentPlayer';
-// import gigInstrumentPlayerData from '../../../helpers/data/gigInstrumentPlayerData';
-import authData from '../../../helpers/data/authData';
-// import gigData from '../../../helpers/data/gigData';
-// import gigShape from '../../../helpers/propz/gigShape';
-import GigCard from '../../shared/GigCard/GigCard';
+import SingleGigCard from '../../shared/SingleGigCard/SingleGigCard';
 
 import './SingleGig.scss';
 import gigData from '../../../helpers/data/gigData';
@@ -18,6 +12,7 @@ class SingleGig extends React.Component {
   state = {
     gig: {},
     gigs: [],
+    instrument: {},
     gigInstrument: {},
     gigInstruments: [],
     allInstruments: [],
@@ -64,15 +59,16 @@ class SingleGig extends React.Component {
   }
 
   render() {
-    const { gig } = this.state;
+    const { gig, instrument, gigInstrument } = this.state;
 
     console.log('why am i undefined', this.state.gigInstruments);
     return (
       <div className="single-gig">
         <h1>SingleGig Page</h1>
         {/* {this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} gigInstrument={gigInstrument} />)} */}
-        <GigCard key={gig.id} gig={gig}/>
+        <SingleGigCard key={gig.id} gig={gig} instrument={instrument} gigInstrument={gigInstrument}/>
         { this.state.gigInstruments.length && this.state.allInstruments.length && this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} instrument={this.state.allInstruments.find((i) => i.id === gigInstrument.instrumentId)} gigInstrument={gigInstrument} />) }
+        <Link className="btn btn-secondary" to="/gig/:gigId/roster">To Roster</Link>
         <h1>GigInstrumentPlayers</h1>
         {/* { this.state.gigInstrumentPlayers.map((gigInstrumentPlayer) => <GigInstrumentPlayer key={gigInstrumentPlayer.id} gigInstrumentPlayer={gigInstrumentPlayer} />) } */}
       </div>

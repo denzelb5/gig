@@ -9,12 +9,18 @@ class InstrumentRow extends React.Component {
     instrument: instrumentRowShape.instrumentRowShape,
     instrumentsCheckbox: instrumentsCheckboxShape.instrumentsCheckboxShape,
     handleCheckboxes: PropTypes.func,
-    // numberChange: PropTypes.func,
+    numberChange: PropTypes.func,
   }
 
   render() {
-    const { instrumentsCheckbox, handleCheckboxes } = this.props;
-    // const { gigNumber } = this.state;
+    const {
+      instrumentsCheckbox,
+      handleCheckboxes,
+      handleNumChange,
+    } = this.props;
+
+    // const numbers = [1, 2, 3, 4, 5, 6];
+
     return (
       <form>
         <div className="col-auto">
@@ -24,12 +30,18 @@ class InstrumentRow extends React.Component {
               {instrumentsCheckbox.name}
             </label>
           </div>
-          {/* <select onChange={numberChange} value={gigNumber} className="custom-select custom-select-sm col-1">
-          <option selected>Qty</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select> */}
+          <div className=" col-md-4">
+        <div className="form-group">
+          <input
+          type="number"
+          id={`input-${instrumentsCheckbox.id}`}
+          className="form-control quantity-input"
+          placeholder="Enter Quantity"
+          value={instrumentsCheckbox.numPlayers.toString()}
+          onChange={handleNumChange}
+          />
+        </div>
+        </div>
         </div>
       </form>
 

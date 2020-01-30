@@ -1,0 +1,42 @@
+{
+  "gigPlayer1": {
+    "gigId": "gig1",
+    "playerId": "player1"
+  },
+  "gigPlayer2": {
+    "gigId": "gig1",
+    "playerId": "player2"
+  },
+  "gigPlayer3": {
+    "gigId": "gig1",
+    "playerId": "player3"
+  },
+  "gigPlayer4": {
+    "gigId": "gig1",
+    "playerId": "player4"
+  },
+  "gigPlayer5": {
+    "gigId": "gig2",
+    "playerId": "player5"
+  },
+  "gigPlayer6": {
+    "gigId": "gig2",
+    "playerId": "player6"
+  },
+  "gigPlayer7": {
+    "gigId": "gig2",
+    "playerId": "player7"
+  },
+  "gigPlayer8": {
+    "gigId": "gig1",
+    "playerId": "player17"
+  },
+  "gigPlayer9": {
+    "gigId": "gig1",
+    "playerId": "player18"
+  },
+  "gigPlayer10": {
+    "gigId": "gig1",
+    "playerId": "player23"
+  }
+}

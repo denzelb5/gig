@@ -29,4 +29,5 @@ export default {
   addInstruments,
   updateInstruments,
   deleteInstruments,
+  getSingleGigInstruments,
 };

@@ -67,8 +67,8 @@ class SingleGig extends React.Component {
         <h1>SingleGig Page</h1>
         {/* {this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} gigInstrument={gigInstrument} />)} */}
         <SingleGigCard key={gig.id} gig={gig} instrument={instrument} gigInstrument={gigInstrument}/>
-        { this.state.gigInstruments.length && this.state.allInstruments.length && this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} instrument={this.state.allInstruments.find((i) => i.id === gigInstrument.instrumentId)} gigInstrument={gigInstrument} />) }
-        <Link className="btn btn-secondary" to="/gig/:gigId/roster">To Roster</Link>
+        { this.state.gigInstruments.length && this.state.allInstruments.length && this.state.gigInstruments.map((gigInst) => <GigInstrument key={gigInst.id} instrument={this.state.allInstruments.find((i) => i.id === gigInst.instrumentId)} gigInstrument={gigInst} />) }
+        <Link className="btn btn-secondary" to={`/gig/${gig.id}/roster`}>Add Players</Link>
         <h1>GigInstrumentPlayers</h1>
         {/* { this.state.gigInstrumentPlayers.map((gigInstrumentPlayer) => <GigInstrumentPlayer key={gigInstrumentPlayer.id} gigInstrumentPlayer={gigInstrumentPlayer} />) } */}
       </div>

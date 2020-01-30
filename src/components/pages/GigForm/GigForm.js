@@ -43,7 +43,6 @@ class GigForm extends React.Component {
       if (instrumentsCheckbox.id === event.target.value) {
         // eslint-disable-next-line no-param-reassign
         instrumentsCheckbox.isChecked = event.target.checked;
-        console.log('checked', instrumentsCheckbox.isChecked);
       }
     });
     this.setState({ instruments: this.instrument });
@@ -69,7 +68,6 @@ class GigForm extends React.Component {
           instrumentsArr[fbId].numPlayers = 0;
           newInstruments.push(instrumentsArr[fbId]);
         });
-        console.log('zoe', newInstruments);
         this.setState({ instrumentsCheckboxes: newInstruments });
       })
       .catch((error) => console.error(error));
@@ -218,12 +216,10 @@ class GigForm extends React.Component {
     const myInstruments = instrumentsCheckboxes.filter((x) => x.isChecked);
     if (myInstruments.length) {
       myInstruments.forEach((instrument) => {
-        console.log(myInstruments);
-        console.log('instrument from gigform', myInstruments);
         const newGigInstrument = {
           instrumentId: instrument.id,
           gigId,
-          number: 1, // instrument.number
+          number: instrument.numPlayers,
         };
         gigInstrumentData.addGigInstrument(newGigInstrument)
           .then()
@@ -253,7 +249,6 @@ class GigForm extends React.Component {
       uid: authData.getUid(),
       number: this.state.gigNumber,
     };
-    console.log('editGig', editGig);
     gigData.updateGig(gigId, editGig)
       .then(() => this.props.history.push(`/gig/${gigId}`))
       .catch((error) => console.error(error));

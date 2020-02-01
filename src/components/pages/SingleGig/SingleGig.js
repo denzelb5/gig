@@ -38,24 +38,17 @@ class SingleGig extends React.Component {
   }
 
   componentDidMount() {
-    // this.getCurrentGigInstruments();
-    // this.getGigInstrumentPlayers();
     this.getCurrentGig();
   }
 
   render() {
     const { gig, instrument, gigInstrument } = this.state;
-
-    // const displayRoster = () => (
-    //     <div className="">
-    //       <li className="list-group-item">{ ) }</li>
-    //     </ul>
-    // );
+    const { gigId } = this.props.match.params;
 
     return (
       <div className="single-gig">
         <div>
-          <SingleGigCard key={gig.id} gig={gig} instrument={instrument} gigInstrument={gigInstrument}/>
+          <SingleGigCard key={gigId} gig={gig} instrument={instrument} gigInstrument={gigInstrument}/>
         </div>
         <div className="container">
           <div className="card">
@@ -64,16 +57,12 @@ class SingleGig extends React.Component {
             </div>
             <div>
               <h1>Personnel</h1>
-              {/* {displayRoster()} */}
               {this.state.gigInstruments.length && this.state.allInstruments.length && this.state.gigInstruments.map((gigInst) => <GigInstrument key={gigInst.id} gigInstrument={gigInst} />)}
             </div>
-            {/* <ul className="list-group list-group-flush">
-              <li className="list-group-item">{ this.state.gigInstruments.length && this.state.allInstruments.length && this.state.gigInstruments.map((gigInst) => <GigInstrument key={gigInst.id} instrument={this.state.allInstruments.find((i) => i.id === gigInst.instrumentId)} gigInstrument={gigInst} />) }</li>
-            </ul> */}
           </div>
         </div>
         <div>
-          <Link className="btn btn-secondary" to={`/gig/${gig.id}/roster`}>Add Players</Link>
+          <Link className="btn btn-secondary" to={`/gig/${gigId}/roster`}>Add Players</Link>
         </div>
       </div>
     );

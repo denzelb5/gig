@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import gigData from '../../../helpers/data/gigData';
 import authData from '../../../helpers/data/authData';
@@ -75,7 +74,6 @@ class GigForm extends React.Component {
 
   getGigData = () => {
     const { gigId } = this.props.match.params;
-    console.error('gigId fo sho', gigId);
     if (gigId) {
       gigData.getSingleGig(gigId)
         .then((response) => {
@@ -108,10 +106,8 @@ class GigForm extends React.Component {
 
   componentDidMount() {
     this.getGigData();
-    // this.getInstruments();
     this.getInstrumentCheckboxData();
     this.getGigInstrumentData();
-    // this.getGigInstruments();
   }
 
   nameChange = (e) => {
@@ -275,7 +271,6 @@ class GigForm extends React.Component {
 
 
     const { gigId } = this.props.match.params;
-    const { gigInstrument } = this.props;
 
     return (
       <div className="gigForm">

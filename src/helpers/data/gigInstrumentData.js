@@ -32,7 +32,6 @@ const getAllGigInstrumentsByGigId = (gigId) => new Promise((resolve, reject) => 
         });
       }
       resolve(gigInstruments);
-      console.log('from gig ints data file', gigInstruments, gigId);
     })
     .catch((error) => reject(error));
 });

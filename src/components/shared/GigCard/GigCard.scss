@@ -1,14 +1,43 @@
-// .no-gutters {
-//   margin-right: 0;
-//   margin-left: 0;
+.header {
+  margin-left: 1em;
 
-//    .col,
-//    [class*="col-"] {
-//     padding-right: 0;
-//     padding-left: 0;
-//   }
-// }
+  .header-bottom {
+    border-bottom: 3px solid lightgray;
+    font-weight: bold;
+    padding-bottom: 1em;
+  }
+}
+
 
 .gigCard {
   text-align: left;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.middle { 
+  padding: 2em;
+}
+
+
+
+.footer {
+  border-top: 3px solid lightgray;
+  padding-top: 1em;
+  
+
+  .contractor-info {
+    margin-right: 2.5em;
+    font-weight: bold;
+  }
+}
+
+.bottom {
+  margin-top: 4em;
+}
+
+.bottom-buttons {
+  margin: .5em;
 }

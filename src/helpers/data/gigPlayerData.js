@@ -19,4 +19,8 @@ const getAllGigPlayersByGigId = (gigId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getAllGigPlayersByGigId };
+const addGigPlayer = (newPlayer) => axios.post(`${baseUrl}/gigPlayers.json`, newPlayer);
+
+const deleteGigPlayer = (gigPlayerId) => axios.delete(`${baseUrl}/gigPlayers/${gigPlayerId}.json`);
+
+export default { getAllGigPlayersByGigId, addGigPlayer, deleteGigPlayer };

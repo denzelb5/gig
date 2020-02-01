@@ -21,21 +21,30 @@ const getCompleteInstrumentsThatBelongToGig = (gigId) => new Promise((resolve, r
 });
 
 const getInstrumentPlayersForRoster = (gigId) => new Promise((resolve, reject) => {
-  getCompleteInstrumentsThatBelongToGig(gigId)
-    .then((instruments) => {
-      playerData.getAllPlayers()
-        .then((players) => {
-          const newArray = [];
-          instruments.forEach((inst) => {
-            const newInst = { ...inst };
-            const instrumentalist = players.filter((x) => x.instrumentId === inst.id);
-            newInst.players = instrumentalist;
-            newArray.push(newInst);
+  getCompleteInstrumentsThatBelongToGig(gigId).then((instruments) => {
+    playerData.getAllPlayers().then((players) => {
+      gigPlayersData.getAllGigPlayersByGigId(gigId).then((gigPlayers) => {
+        const newArray = [];
+        instruments.forEach((inst) => {
+          const newInst = { ...inst };
+          const instrumentalist = players.filter((x) => x.instrumentId === inst.id);
+          newInst.players = instrumentalist;
+          newInst.players.forEach((player) => {
+            const gigPlayerRecord = gigPlayers.find((w) => w.playerId === player.id);
+            if (gigPlayerRecord) {
+              // eslint-disable-next-line no-param-reassign
+              player.gigPlayerId = gigPlayerRecord.id;
+            } else {
+              // eslint-disable-next-line no-param-reassign
+              player.gigPlayerId = 'none';
+            }
           });
-          resolve(newArray);
+          newArray.push(newInst);
         });
-    })
-    .catch((error) => reject(error));
+        resolve(newArray);
+      });
+    });
+  }).catch((error) => reject(error));
 });
 
 const getCompleteGigInstrumentsWithPlayers = (gigId) => new Promise((resolve, reject) => {

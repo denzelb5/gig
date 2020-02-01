@@ -1,19 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-// import InstrumentMenu from '../../shared/InstrumentMenu/InstrumentMenu';
 import PlayerRow from '../../shared/PlayerRow/PlayerRow';
-
+// import playerData from '../../../helpers/data/playerData';
+import gigPlayerData from '../../../helpers/data/gigPlayerData';
 import smash from '../../../helpers/data/smash';
 import './Roster.scss';
 
 class Roster extends React.Component {
-  static propTypes = {
-    handleCheckboxes: PropTypes.func,
-  }
-
   state = {
     instruments: [],
+    players: [],
   }
 
   getInstruments = () => {
@@ -23,18 +19,68 @@ class Roster extends React.Component {
       .catch((error) => console.error(error));
   }
 
+  handlePlayerCheckboxes = (event) => {
+    const { players } = this.state;
+    const newPlayers = [...players];
+    const playersIndex = players.findIndex((x) => x.id === event.target.id);
+    newPlayers[playersIndex].isChecked = event.target.checked;
+    this.setState({ players });
+  }
+
+
+  // getPlayerCheckboxData = () => {
+  //   const { gigId } = this.props.match.params;
+  //   smash.getInstrumentPlayersForGigId(gigId)
+  //     .then((result) => {
+  //       console.log('result', result);
+  //       const playersArr = result;
+  //       const newPlayers = [];
+  //       Object.keys(playersArr).forEach((fbId) => {
+  //         const { players } = playersArr[fbId];
+  //         Object.keys(players).forEach((player) => {
+  //           console.log('player2', player);
+  //           // eslint-disable-next-line no-param-reassign
+  //           players[player].isChecked = false;
+  //         });
+  //         newPlayers.push(players);
+  //       });
+  //       console.error('newPlayers', newPlayers);
+  //       this.setState({ players: newPlayers });
+  //     })
+  //     .catch((error) => console.error(error));
+  // }
+
+  saveHiredPlayers = (gigId) => {
+    const { players } = this.state;
+    const myPlayers = players.filter((x) => x.isChecked);
+    if (myPlayers.length) {
+      myPlayers.forEach((player) => {
+        const newHiredPlayer = {
+          playerId: player.id,
+          gigId,
+        };
+        gigPlayerData.addGigInstrument(newHiredPlayer)
+          .then()
+          .catch((error) => console.error(error));
+      });
+    }
+  }
+
   componentDidMount() {
     this.getInstruments();
+    // this.getPlayerCheckboxData();
   }
 
   render() {
     const { gigId } = this.props.match.params;
     const { instruments } = this.state;
+    const { playerCheckboxes } = this.state;
+
     const printRoster = () => instruments.map((instrument) => (
       <div>
         <h1>{instrument.name}</h1>
         <h2>Number: {instrument.number}</h2>
-        {instrument.players.map((player) => <PlayerRow key={player.id} player={player} />)}
+        {instrument.players.map((player) => <PlayerRow key={player.id} player={player} playerCheckboxes={playerCheckboxes} handlePlayerCheckboxes={this.handlePlayerCheckboxes} />)}
       </div>
     ));
 

@@ -43,7 +43,6 @@ class SingleGig extends React.Component {
         gig.id = gigId;
         gigInstrumentData.getAllGigInstrumentsByGigId(gigId)
           .then((gigInstruments) => {
-            console.log(response, 'response from getallinstrums');
             this.setState({ gigInstruments, gig: response.data });
             this.getInstruments();
           })
@@ -61,15 +60,25 @@ class SingleGig extends React.Component {
   render() {
     const { gig, instrument, gigInstrument } = this.state;
 
-    console.log('why am i undefined', this.state.gigInstruments);
     return (
       <div className="single-gig">
-        <h1>SingleGig Page</h1>
-        {/* {this.state.gigInstruments.map((gigInstrument) => <GigInstrument key={gigInstrument.id} gigInstrument={gigInstrument} />)} */}
-        <SingleGigCard key={gig.id} gig={gig} instrument={instrument} gigInstrument={gigInstrument}/>
-        { this.state.gigInstruments.length && this.state.allInstruments.length && this.state.gigInstruments.map((gigInst) => <GigInstrument key={gigInst.id} instrument={this.state.allInstruments.find((i) => i.id === gigInst.instrumentId)} gigInstrument={gigInst} />) }
-        <Link className="btn btn-secondary" to={`/gig/${gig.id}/roster`}>Add Players</Link>
-        <h1>GigInstrumentPlayers</h1>
+        <div>
+          <SingleGigCard key={gig.id} gig={gig} instrument={instrument} gigInstrument={gigInstrument}/>
+        </div>
+        <div className="container">
+          <div className="card">
+            <div className="card-header">
+              Instrumentation
+            </div>
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item">{ this.state.gigInstruments.length && this.state.allInstruments.length && this.state.gigInstruments.map((gigInst) => <GigInstrument key={gigInst.id} instrument={this.state.allInstruments.find((i) => i.id === gigInst.instrumentId)} gigInstrument={gigInst} />) }</li>
+            </ul>
+          </div>
+        </div>
+        <div className="personnel">
+          <Link className="btn btn-secondary" to={`/gig/${gig.id}/roster`}>Add Players</Link>
+          <h1>Personnel</h1>
+        </div>
         {/* { this.state.gigInstrumentPlayers.map((gigInstrumentPlayer) => <GigInstrumentPlayer key={gigInstrumentPlayer.id} gigInstrumentPlayer={gigInstrumentPlayer} />) } */}
       </div>
     );

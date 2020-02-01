@@ -15,8 +15,11 @@ const getAllGigPlayersByGigId = (gigId) => new Promise((resolve, reject) => {
         });
       }
       resolve(final);
+      console.error('final', final);
     })
     .catch((error) => reject(error));
 });
 
-export default { getAllGigPlayersByGigId };
+const addGigPlayer = (newPlayer) => axios.post(`${baseUrl}/gigPlayers.json`, newPlayer);
+
+export default { getAllGigPlayersByGigId, addGigPlayer };

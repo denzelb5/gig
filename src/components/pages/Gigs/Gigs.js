@@ -29,10 +29,11 @@ class Gig extends React.Component {
 
   render() {
     return (
-      <div className="Gigs">
-      <h2>Gigs Page</h2>
-      {this.state.allGigs.map((gig) => <GigCard key={gig.id} gig={gig} deleteGig={this.deleteGig} />)}
-      </div>
+
+        <div className="gigs">
+          {this.state.allGigs.map((gig) => <GigCard key={gig.id} gig={gig} deleteGig={this.deleteGig} />)}
+        </div>
+
     );
   }
 }

@@ -4,7 +4,7 @@ import './SingleGigCard.scss';
 
 class SingleGigCard extends React.Component {
   render() {
-    const { gig, instrument, gigInstrument } = this.props;
+    const { gig } = this.props;
     return (
 //       <div className="singleGigCard">
 //       <div className="card mb-3">

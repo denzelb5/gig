@@ -15,7 +15,6 @@ const getAllGigPlayersByGigId = (gigId) => new Promise((resolve, reject) => {
         });
       }
       resolve(final);
-      console.error('final', final);
     })
     .catch((error) => reject(error));
 });

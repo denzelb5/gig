@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PlayerRow from '../../shared/PlayerRow/PlayerRow';
-// import playerData from '../../../helpers/data/playerData';
 import gigPlayerData from '../../../helpers/data/gigPlayerData';
 import smash from '../../../helpers/data/smash';
 import './Roster.scss';

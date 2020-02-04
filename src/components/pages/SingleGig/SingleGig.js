@@ -50,19 +50,20 @@ class SingleGig extends React.Component {
         <div>
           <SingleGigCard key={gigId} gig={gig} instrument={instrument} gigInstrument={gigInstrument}/>
         </div>
-        <div className="container">
-          <div className="card">
+        <div className="roster-div">
+          <div className="">
+          <div className="card roster-background">
             <div className="card-header">
-              Instrumentation
+              Instrumentation And Personnel
             </div>
-            <div>
-              <h1>Personnel</h1>
+            <div className="d-flex row container personnel">
               {this.state.gigInstruments.length && this.state.allInstruments.length && this.state.gigInstruments.map((gigInst) => <GigInstrument key={gigInst.id} gigInstrument={gigInst} />)}
             </div>
           </div>
         </div>
+        </div>
         <div>
-          <Link className="btn btn-secondary" to={`/gig/${gigId}/roster`}>Add Players</Link>
+          <Link className="btn btn-secondary add-player" to={`/gig/${gigId}/roster`}>Add Players</Link>
         </div>
       </div>
     );

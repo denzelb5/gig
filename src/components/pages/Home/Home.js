@@ -11,7 +11,7 @@ class Home extends React.Component {
           <div className="card-body">
             <h5 className="card-title">My Gigs</h5>
             <p className="card-text">View your scheduled gigs here.</p>
-            <Link className="btn btn-danger" to="/gigs">My Gigs</Link>
+            <Link className="btn btn-primary" to="/gigs">My Gigs</Link>
           </div>
         </div>
       </div>

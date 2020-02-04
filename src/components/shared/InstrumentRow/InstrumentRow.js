@@ -26,7 +26,7 @@ class InstrumentRow extends React.Component {
           <div className="col-2 instrument-checkbox-div">
           <div className="form-check  mb-2">
             <input className="form-check-input instrument-checkboxes" onChange={handleCheckboxes} type="checkbox" value={instrumentsCheckbox.id} id={instrumentsCheckbox.id}/>
-            <label className="form-check-label" htmlFor="autoSizingCheck">
+            <label className="form-check-label ins-names" htmlFor="autoSizingCheck">
               {instrumentsCheckbox.name}
             </label>
           </div>

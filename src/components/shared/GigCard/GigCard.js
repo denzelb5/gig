@@ -57,7 +57,7 @@ class GigCard extends React.Component {
     </div>
 
     <div className="bottom">
-      <Link className="btn btn-success bottom-buttons" to={`/gig/${gig.id}`}>View Gig</Link>
+      <Link className="btn btn-primary bottom-buttons" to={`/gig/${gig.id}`}>View Gig</Link>
       <button className="btn btn-danger bottom-buttons" onClick={this.deleteGigEvent}>Delete</button>
       <Link className="btn btn-warning bottom-buttons" to={`/gig/${gig.id}/edit`}>Edit</Link>
     </div>

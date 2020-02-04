@@ -12,7 +12,7 @@ class SingleGigCard extends React.Component {
     <p className="lead">{gig.description}</p>
     <hr className="my-4"/>
     <div className="d-flex flex-wrap">
-      <div className="col-5">
+      <div className="col-5 gig-details">
         <p>Concert Date: {gig.concertDate}</p>
         <p>Concert Time: {gig.concertTime}</p>
         <p>Concert Location: {gig.concertLocation}</p>
@@ -20,7 +20,7 @@ class SingleGigCard extends React.Component {
         <p>Outdoors: {gig.isOutside}</p>
         <p>Contractor Email: {gig.contractorEmail}</p>
       </div>
-      <div className="col-5">
+      <div className="col-5 gig-details">
         <p>Rehearsal Date: {gig.rehearsalDate}</p>
         <p>Rehearsal Time: {gig.rehearsalTime}</p>
         <p>Rehearsal Location: {gig.rehearsalLocation}</p>

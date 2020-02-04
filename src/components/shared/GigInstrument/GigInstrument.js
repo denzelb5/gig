@@ -8,10 +8,10 @@ class GigInstrument extends React.Component {
     const { gigInstrument } = this.props;
 
     return (
-      <div className="card border-secondary gigInstrument">
+      <div className="card border-dark gigInstrument">
         <div>
           <div className="card-body">
-              <div className="rosterCard-header">{gigInstrument.name}:  {gigInstrument.number}</div>
+              <div className="rosterCard-header">{gigInstrument.name}(s) Needed: {gigInstrument.number}</div>
               {gigInstrument.players.map((player) => <p key={player.id}>{player.name}</p>)}
           </div>
         </div>

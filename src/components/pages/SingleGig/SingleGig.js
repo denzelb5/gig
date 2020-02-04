@@ -53,7 +53,7 @@ class SingleGig extends React.Component {
         <div className="roster-div">
           <div className="">
           <div className="card roster-background">
-            <div className="card-header">
+            <div className="card-header roster-title">
               Instrumentation And Personnel
             </div>
             <div className="d-flex row container personnel">

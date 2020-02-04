@@ -3,14 +3,19 @@
 }
 
 .roster-div {
-  text-align: left;
   margin: 6em 6em 3em 6em;
 }
 
 .personnel {
-  padding-left: 6em;
+  padding-left: 8em;
 }
 
 .add-player {
   margin-bottom: 2em;
+}
+
+.roster-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: rgb(0, 94, 128);
 }

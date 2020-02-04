@@ -1,0 +1,31 @@
+.roster {
+  background-color: rgb(131, 22, 40);
+
+  .roster-headline {
+    font-weight: bold;
+    color: white;
+    padding: 1em;
+  }
+
+  .personnel-card {
+    margin: 2em;
+    
+  
+  
+    .personnel-card-header {
+      color: rgb(131, 22, 40);
+      border-bottom: 1px solid silver;
+      font-weight: bold;
+      padding: .5em 0 .5em 0;
+    }
+  }
+}
+
+.roster-button {
+  margin-bottom: 2em;
+}
+
+.checkbox-div {
+  text-align: left;
+  color: rgb(111, 106, 106);
+}

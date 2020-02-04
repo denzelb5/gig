@@ -1,11 +1,21 @@
 .single-gig {
-  background-color: rgb(94, 182, 162);
+  background-color: rgb(88, 178, 208);
 }
 
-.instrumentation {
-  text-align: left;
+.roster-div {
+  margin: 6em 6em 3em 6em;
 }
 
 .personnel {
-  margin: 2em;
+  padding-left: 8em;
+}
+
+.add-player {
+  margin-bottom: 2em;
+}
+
+.roster-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: rgb(0, 94, 128);
 }

@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 /src/helpers/apiKeys.json
 
+
 # dependencies
 /node_modules
 /.pnp
@@ -11,6 +12,9 @@
 
 # production
 /build
+.firebaserc
+
+
 
 # misc
 .DS_Store
@@ -25,3 +29,5 @@ yarn-error.log*
 
 
 package-lock.json
+.firebase.json/
+ 

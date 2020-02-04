@@ -51,18 +51,25 @@ class Roster extends React.Component {
     );
 
     const printRoster = () => instruments.map((instrument) => (
-      <div key={instrument.id}>
-        <h1>{instrument.name}</h1>
-        <h2>Number: {instrument.number}</h2>
-        {instrument.players.map((player) => printCheckbox(player))}
-      </div>
+        <div className="card col-3 personnel-card">
+            <div key={instrument.id} className="personnel-card-header">
+              {instrument.name}: Players Needed: {instrument.number}
+            </div>
+            <div className="card-body checkbox-div">
+              {instrument.players.map((player) => printCheckbox(player))}
+            </div>
+        </div>
     ));
 
     return (
       <div className="roster">
-        <h1>Roster page</h1>
-        <Link className="btn btn-success" to={`/gig/${gigId}`}>View Gig</Link>
-        {printRoster()}
+        <h1 className="roster-headline">Select Needed Personnel:</h1>
+        <div className="container">
+          <div className="roster-cards-div row">
+            {printRoster()}
+          </div>
+        </div>
+        <Link className="btn btn-secondary roster-button" to={`/gig/${gigId}`}>View Final Gig Sheet</Link>
       </div>
     );
   }

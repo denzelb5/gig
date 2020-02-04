@@ -1,0 +1,13 @@
+.auth {
+  background-image: url('https://images.unsplash.com/photo-1574551375004-f46a1d1cca53?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80');
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 900px;
+
+  .login-button {
+    margin: 3em;
+  }
+}

@@ -60,7 +60,6 @@ class Roster extends React.Component {
 
     return (
       <div className="roster">
-        <h1>Roster page</h1>
         <Link className="btn btn-success" to={`/gig/${gigId}`}>View Gig</Link>
         {printRoster()}
       </div>

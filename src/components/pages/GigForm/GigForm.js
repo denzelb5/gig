@@ -274,170 +274,163 @@ class GigForm extends React.Component {
 
     return (
       <div className="gigForm">
-      <h1>GigForm add</h1>
-      <form className="Auth">
-        <div className=" col-md-4">
-        <div className="form-group">
-          <input
-          type="text"
-          className="form-control"
-          id="gig-name"
-          placeholder="Enter Gig Name"
-          value={gigName}
-          onChange={this.nameChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-description">Description</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-description"
-          placeholder="Enter Gig Description"
-          value={gigDescription}
-          onChange={this.descriptionChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-concertDate">Concert Date</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-concertDate"
-          placeholder="Enter Gig concertDate"
-          value={gigConcertDate}
-          onChange={this.concertDateChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-concertTime">Concert Time</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-concertTime"
-          placeholder="Enter Gig Concert Time"
-          value={gigConcertTime}
-          onChange={this.concertTimeChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-concertLocation">Concert Location</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-concertLocation"
-          placeholder="Enter Gig Concert Location"
-          value={gigConcertLocation}
-          onChange={this.concertLocationChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-concertDress">Concert Dress</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-concertDress"
-          placeholder="Enter Gig Concert Dress"
-          value={gigConcertDress}
-          onChange={this.concertDressChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-basePayTotal">Base Pay Total</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-basePayTotal"
-          placeholder="Enter Gig Base Pay Total"
-          value={gigBasePayTotal}
-          onChange={this.basePayTotalChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-rehearsalDate">Rehearsal Date</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-rehearsalDate"
-          placeholder="Enter Gig Rehearsal Date"
-          value={gigRehearsalDate}
-          onChange={this.rehearsalDateChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-rehearsalTime">Rehearsal Time</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-rehearsalTime"
-          placeholder="Enter Gig Rehearsal Time"
-          value={gigRehearsalTime}
-          onChange={this.rehearsalTimeChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-rehearsalLocation">Rehearsal Location</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-rehearsalLocation"
-          placeholder="Enter Gig Rehearsal Location"
-          value={gigRehearsalLocation}
-          onChange={this.rehearsalLocationChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-contractorEmail">Contractor Email</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-contractorEmail"
-          placeholder="Enter Gig Contractor Email"
-          value={gigContractorEmail}
-          onChange={this.contractorEmailChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-contractorPhone">Contractor Phone</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-contractorPhone"
-          placeholder="Enter Gig Contractor Phone"
-          value={gigContractorPhone}
-          onChange={this.contractorPhoneChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-reportoire">Reportoire</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-reportoire"
-          placeholder="Enter Gig Reportoire"
-          value={gigReportoire}
-          onChange={this.reportoireChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="gig-isOutside">Outdoors?</label>
-          <input
-          type="text"
-          className="form-control"
-          id="gig-isOutside"
-          placeholder="Gig Outdoors Yes/No?"
-          value={gigIsOutside}
-          onChange={this.isOutsideChange}
-          />
-        </div>
-        </div>
-      </form>
+        <h3 className="gigForm-header">Enter Your Gig Information Here:</h3>
+        <form className="gig-form">
+          <div className="d-flex flex-wrap">
+          <div className="col-md-3">
+            <div className="form-group gig-box">
+              <input
+              type="text"
+              className="form-control"
+              id="gig-name"
+              placeholder="Name"
+              value={gigName}
+              onChange={this.nameChange}
+              />
+            </div>
+            <div className="form-group gig-box">
+              <input
+              type="text"
+              className="form-control"
+              id="gig-description"
+              placeholder="Description"
+              value={gigDescription}
+              onChange={this.descriptionChange}
+              />
+            </div>
+            <div className="form-group gig-box">
+              <input
+              type="text"
+              className="form-control"
+              id="gig-concertDate"
+              placeholder="Concert Date"
+              value={gigConcertDate}
+              onChange={this.concertDateChange}
+              />
+            </div>
+            <div className="form-group gig-box">
+              <input
+              type="text"
+              className="form-control"
+              id="gig-concertTime"
+              placeholder="Concert Time"
+              value={gigConcertTime}
+              onChange={this.concertTimeChange}
+              />
+            </div>
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-concertLocation"
+                placeholder="Concert Location"
+                value={gigConcertLocation}
+                onChange={this.concertLocationChange}
+                />
+              </div>
+              </div>
+            <div className="col-md-3">
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-concertDress"
+                placeholder="Concert Dress"
+                value={gigConcertDress}
+                onChange={this.concertDressChange}
+                />
+              </div>
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-basePayTotal"
+                placeholder="Base Pay Total"
+                value={gigBasePayTotal}
+                onChange={this.basePayTotalChange}
+                />
+              </div>
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-rehearsalDate"
+                placeholder="Rehearsal Date"
+                value={gigRehearsalDate}
+                onChange={this.rehearsalDateChange}
+                />
+              </div>
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-rehearsalTime"
+                placeholder="Rehearsal Time"
+                value={gigRehearsalTime}
+                onChange={this.rehearsalTimeChange}
+                />
+              </div>
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-rehearsalLocation"
+                placeholder="Rehearsal Location"
+                value={gigRehearsalLocation}
+                onChange={this.rehearsalLocationChange}
+                />
+              </div>
+              </div>
+            <div className="col-md-3">
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-contractorEmail"
+                placeholder="Contractor Email"
+                value={gigContractorEmail}
+                onChange={this.contractorEmailChange}
+                />
+              </div>
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-contractorPhone"
+                placeholder="Contractor Phone"
+                value={gigContractorPhone}
+                onChange={this.contractorPhoneChange}
+                />
+              </div>
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-reportoire"
+                placeholder="Reportoire"
+                value={gigReportoire}
+                onChange={this.reportoireChange}
+                />
+              </div>
+              <div className="form-group gig-box">
+                <input
+                type="text"
+                className="form-control"
+                id="gig-isOutside"
+                placeholder="Gig Outdoors Yes/No?"
+                value={gigIsOutside}
+                onChange={this.isOutsideChange}
+                />
+              </div>
+          </div>
+          </div>
+          </form>
+      <div className="checkboxes-div">
       {instrumentsCheckboxes.map((instrumentsCheckbox) => <InstrumentRow key={instrumentsCheckbox.id} instrumentsCheckboxName={instrumentsCheckbox.name} instrumentsCheckbox={instrumentsCheckbox} handleCheckboxes={this.handleCheckboxes} handleNumChange={this.handleNumChange} />)}
-      <div>
       </div>
       { !gigId
-        ? <button className="btn btn-warning" onClick={this.saveGigEvent}>Save Gig</button>
-        : <button className="btn btn-primary" onClick={this.editGigEvent}>Edit Gig</button>
+        ? <button className="btn btn-warning gig-form-button" onClick={this.saveGigEvent}>Save Gig</button>
+        : <button className="btn btn-primary gig-form-button" onClick={this.editGigEvent}>Edit Gig</button>
         }
       </div>
     );

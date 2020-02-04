@@ -4,5 +4,10 @@
 
 .home {
   display: block;
-  background-color: rgb(26, 152, 230);
+  background-color: black;
+
+  .home-gig-card {
+    margin-top: 4em;
+    margin-bottom: 9em;
+  }
 }
